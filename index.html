@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,66 +14,56 @@
 <body>
     <header class="header">
         <a class="header__logo">
-            <img class='' src='#' width="" height="" alt="Логотип питомника Мейн-Кунов">
+            <img class="#" src="#" width="#" height="#" alt="Логотип питомника Мейн-Кунов">
         </a>
-        <div class="header__context-wrapper">
-            <ol class="social__block header__social">
-                <li class="social__element-wrapper header__social-element-wrapper">
-                    <a class="social__element header__social-element header__social-element--vk"
-                        href="https://vk.com/">ВКонтакте</a>
+        <div class="header__context-container">
+            <ol class="social">
+                <li class="social__element-wrapper">
+                    <a class="social__element social__element--vk" href="https://vk.com/">ВКонтакте</a>
                 </li>
-                <li class="social__element-wrapper header__social-element-wrapper">
-                    <a class="social__element header__social-element header__social-element--tw"
-                        href="https://twitter.com/">Твиттер</a>
+                <li class="social__element-wrapper">
+                    <a class="social__element social__element--tw" href="https://twitter.com/">Твиттер</a>
                 </li>
-                <li class="social__element-wrapper header__social-element-wrapper">
-                    <a class="social__element header__social-element header__social-element--fb"
-                        href="https://www.facebook.com/">Фейсбук</a>
+                <li class="social__element-wrapper">
+                    <a class="social__element social__element--fb" href="https://www.facebook.com/">Фейсбук</a>
                 </li>
             </ol>
-            <section class="header__context-title-wrapper">
-                <p>Новосибирск</p>
-                <h1>Питомник Мейн-Кунов</h1>
-                <p>Первый питомник с расширенным спектром услуг</p>
-                <button type='button'>Смотреть котиков</button>
+            <section class="header__context accent">
+                <p class="accent__element accent__element--text">Новосибирск</p>
+                <h1 class="header__context-headline">Питомник Мейн-Кунов</h1>
+                <p class="accent__element accent__element--text">Первый питомник с расширенным спектром услуг</p>
+                <a class="header__context-btn accent__element accent__element--border" href="#">Смотреть котиков</a>
             </section>
-            <img class="header__context-image" src="#" width="" height="" alt="Фотография большого рыжего мейн-куна">
+            <img class="header__context-image" src="#" width="#" height="#" alt="Фотография большого рыжего мейн-куна">
         </div>
     </header>
     <main>
-        <section class="catalog">
+        <section class="catalog accent">
             <h2 class="catalog__headline">Питомцы</h2>
-            <p class="catalog__interpretation">Все представители нашего питомника имеют ветеринарный паспорт с отметками
-                о
-                прививках и документ с родословной</p>
+            <p class="catalog__interpretation accent__element accent__element--text">Все представители нашего питомника имеют ветеринарный паспорт с отметками о прививках и документ с родословной</p>
             <section class="catalog__slider">
-                <ol class="catalog__switcher-block">
-                    <li class='catalog__switcher-wrapper'>
-                        <button class="catalog__switcher catalog__switcher-male" type="button">Коты</button>
-                    </li>
-                    <li class='catalog__switcher-wrapper'>
-                        <button class="catalog__switcher catalog__switcher-fremale" type="button">Кошки</button>
-                    </li>
-                    <li class='catalog__switcher-wrapper'>
-                        <button class="catalog__switcher catalog__switcher-kids" type="button">Котята</button>
-                    </li>
-                </ol>
+                <form method="#" action="#"> <!-- выставить метод и адрес отправки -->
+                    <input type="radio" id="radio-1" name="Change group cats" checked>
+                    <label for="radio-1">Коты</label>
+                    <input type="radio" id="radio-2" name="Change group cats">
+                    <label for="radio-2">Кошки</label>
+                    <input type="radio" id="radio-3" name="Change group cats">
+                    <label for="radio-3">Котята</label>
+                </form>
                 <div class="catalog__gallery">
                     <button type="button">Показать предыдущее животное</button> <!-- появляется на другом разрешении -->
-                    <img class="catalog__gallery-photo" href="#" alt="потом отредактировать">
-                    <img class="catalog__gallery-photo" href="#" alt="потом отредактировать">
-                    <img class="catalog__gallery-photo" href="#" alt="потом отредактировать">
+                    <img class="catalog__gallery-photo" src="#" alt="Котэ из питомника">
+                    <img class="catalog__gallery-photo" src="#" alt="Котэ из питомника">
+                    <img class="catalog__gallery-photo" src="#" alt="Котэ из питомника">
                     <button type="button">Показать следующее животное</button> <!-- появляется на другом разрешении -->
                 </div>
             </section>
-            <a href="#">Смотреть больше</a>
+            <a class="catalog__watch-more-btn accent__element accent__element--border" href="#">Смотреть больше</a>
         </section>
-        <section class="features">
-            <h2 class="features__headline">Питомцы</h2>
-            <p class="features__interpretation">Мейн-Кун - это порода, которая вызывает к себе уважение. Приобретая в
-                свой дом этого питомца, вы получите умное животное, которому нет равных</p>
-            <img class="features__background" src="#" width="" height=""
-                alt="Схематичная картинка мейн-куна, с его особенностями">
+        <section class="features accent">
+            <h2 class="features__headline">Особенности породы</h2>
+            <p class="features__interpretation accent__element accent__element--text">Мейн-Кун - это порода, которая вызывает к себе уважение. Приобретая в свой дом этого питомца, вы получите умное животное, которому нет равных</p>
+            <img class="features__background" src="#" width="#" height="#" alt="Инфографика мейн-куна, с его особенностями">
             <ol class="features__list">
                 <li class="features__element">Легко уживается в семьях с детьми или другими животными</li>
                 <li class="features__element">Внешний вид этой кошки похож на дикую рысь</li>
@@ -82,9 +71,9 @@
                 <li class="features__element">Вес может достигать 12 кг, а длина 1 м</li>
             </ol>
         </section>
-        <section class="why-we">
+        <section class="why-we accent">
             <h2 class="why-we__headline">Почему именно мы?</h2>
-            <p class="why-we__interpretation">Приобретая животное в нашем питомнике, вы получите</p>
+            <p class="why-we__interpretation accent__element accent__element--text">Приобретая животное в нашем питомнике, вы получите</p>
             <ol class="why-we__bonuses-list">
                 <li class="why-we__bonus-element">Бесплатное ветеринарное обслуживание 5 лет</li>
                 <li class="why-we__bonus-element">Консультирование по любому вопросу 24 часа в сутки</li>
@@ -93,59 +82,51 @@
         </section>
         <section class="cat-care">
             <h2 class="cat-care__headline">Об уходе за Мейн-Куном</h2>
-            <div class="cat-care__content-wrapper">
+            <div class="cat-care__content-wrapper accent">
+                <!-- не список лишь потому, что я не помню, можно ли заголовки вставлять в список -->
                 <div class="cat-care__element">
-                    <h3 class="cat-care__element-headline">Шерсть</h3>
-                    <p class="cat-care__element-content">Мы разработали 8 правил, следуя которым, шерсть вашего кота
-                        всегда будет блестящей, мягкой и послушной</p>
-                    <button class="cat-care__element-btn" type="button"></button>
+                    <h3 class="cat-care__element-headline accent__element accent__element--text">Шерсть</h3>
+                    <p class="cat-care__element-context">Мы разработали 8 правил, следуя которым, шерсть вашего кота всегда будет блестящей, мягкой и послушной</p>
+                    <button class="cat-care__element-btn" type="button">Подробнее</button>
                 </div>
                 <div class="cat-care__element">
-                    <h3 class="cat-care__element-headline">Когти</h3>
-                    <p class="cat-care__element-content">Нужно ли стричь когти? Это мы и выясним, плюс ко всему
-                        расскажем как подобрать идеальную когтеточку</p>
-                    <button class="cat-care__element-btn" type="button"></button>
+                    <h3 class="cat-care__element-headline accent__element accent__element--text">Когти</h3>
+                    <p class="cat-care__element-context">Нужно ли стричь когти? Это мы и выясним, плюс ко всему расскажем как подобрать идеальную когтеточку</p>
+                    <button class="cat-care__element-btn" type="button">Подробнее</button>
                 </div>
                 <div class="cat-care__element">
-                    <h3 class="cat-care__element-headline">Уши и глаза</h3>
-                    <p class="cat-care__element-content">Владельцам котов необходимо регулярно осматривать ушки и
-                        глаза своих питомцев, ведь это может быть признаками заболевания</p>
-                    <button class="cat-care__element-btn" type="button"></button>
+                    <h3 class="cat-care__element-headline accent__element accent__element--text">Уши и глаза</h3>
+                    <p class="cat-care__element-context">Владельцам котов необходимо регулярно осматривать ушки и глаза своих питомцев, ведь это может быть признаками заболевания</p>
+                    <button class="cat-care__element-btn" type="button">Подробнее</button>
                 </div>
                 <div class="cat-care__element">
-                    <h3 class="cat-care__element-headline">Питание</h3>
-                    <p class="cat-care__element-content">В нашем питомнике существует два подхода: натуральное питание и
-                        питание промышленными кормами, но выбирать только вам</p>
-                    <button class="cat-care__element-btn" type="button"></button>
+                    <h3 class="cat-care__element-headline accent__element accent__element--text">Питание</h3>
+                    <p class="cat-care__element-context">В нашем питомнике существует два подхода: натуральное питание и питание промышленными кормами, но выбирать только вам</p>
+                    <button class="cat-care__element-btn" type="button">Подробнее</button>
                 </div>
             </div>
         </section>
-        <section class="team">
+        <section class="team accent">
             <h2 class="team__headline">Наша команда</h2>
-            <p class="team__interpretation">Все сотрудники нашего питомника дипломированые специалисты в области
-                фелинологии и ветеринарии</p>
+            <p class="team__interpretation accent__element accent__element--text">Все сотрудники нашего питомника дипломированые специалисты в области фелинологии и ветеринарии</p>
             <div class="team__slider-wrapper">
                 <div class="team__slider">
                     <button type="button">Предыдущий сотрудник</button>
                     <div class="team__person">
-                        <img class="team__person-photo" src="#" with="" height="" alt="">
+                        <img class="team__person-photo" src="#" width="#" height="#" alt="Фотография члена команды питомника мейн-кунов">
                         <div class="team__about-person">
-                            <h3 class="team__person-headline">Серёжа Попов</h3>
-                            <span class="team__person-rank">Основатель питомника</span>
-                            <p class="team__person-opinion">Наш питомник занимается разведением Мейн-Кунов на протяжении
-                                15 лет. Мы в ответе за каждого приобретенного вами питомца</p>
-                            <ol class="social__block team__social">
-                                <li class="social__element-wrapper team__social-element-wrapper">
-                                    <a class="social__element team__social-element team__social-element--fb"
-                                        href="https://www.facebook.com/">Фейсбук</a>
+                            <h3 class="team__person-headline accent__element accent__element--text">Серёжа Попов</h3>
+                            <span class="team__person-rank accent__element accent__element--text">Основатель питомника</span>
+                            <p class="team__person-opinion">Наш питомник занимается разведением Мейн-Кунов на протяжении 15 лет. Мы в ответе за каждого приобретенного вами питомца</p>
+                            <ol class="social">
+                                <li class="social__element-wrapper">
+                                    <a class="social__element social__element--fb" href="https://www.facebook.com/">Фейсбук</a>
                                 </li>
-                                <li class="social__element-wrapper team__social-element-wrapper">
-                                    <a class="social__element team__social-element team__social-element--tw"
-                                        href="https://twitter.com/">Твиттер</a>
+                                <li class="social__element-wrapper">
+                                    <a class="social__element social__element--tw" href="https://twitter.com/">Твиттер</a>
                                 </li>
-                                <li class="social__element-wrapper team__social-element-wrapper">
-                                    <a class="social__element team__social-element team__social-element--vk"
-                                        href="https://vk.com/">ВКонтакте</a>
+                                <li class="social__element-wrapper">
+                                    <a class="social__element social__element--vk" href="https://vk.com/">ВКонтакте</a>
                                 </li>
                             </ol>
                         </div>
@@ -154,57 +135,45 @@
                 </div>
             </div>
         </section>
-        <section class="questions">
-            <h2 class="questions__headline">Вопрос-Ответ</h2>
-            <p class="questions__interpretation">Мы ответим на самые популярные ваши вопросы</p>
-            <ul class="questions__list">
-                <li class="questions__element">
-                    <div class="questions__element-index">01</div>
-                    <div class="questions__element-context">
-                        <div class="questions__asked-block">
-                            <p class="questions__asked">С какого возраста можно забирать котенка из питомника?</p>
-                            <button class="questions__switcher questions__switcher--opened" type="button">Скрыть или
-                                показать ответ на вопрос</button>
+        <section class="faq accent">
+            <h2 class="faq__headline">Вопрос-Ответ</h2>
+            <p class="faq__interpretation accent__element accent__element--text">Мы ответим на самые популярные ваши вопросы</p>
+            <ul class="faq__list">
+                <li class="faq__element">
+                    <div class="faq__element-index accent__element accent__element--text">01</div>
+                    <div class="faq__element-context">
+                        <div class="faq__asked-block">
+                            <p class="faq__asked">С какого возраста можно забирать котенка из питомника?</p>
+                            <button class="faq__switcher faq__switcher--opened" type="button">Скрыть ответ на вопрос</button>
                         </div>
-                        <div class="questions__answer">Есть важная причина, почему котенка стоит забирать домой только
-                            после трех месяцев, — это вакцинация. Первые прививки животному делают в возрасте 8 недель.
-                            Ревакцинация проводится через 3–4 недели. То есть котенок, покидающий дом позднее 12 недель,
-                            максимально защищен от различных вирусов и инфекций. Так что, чтобы в дома появился
-                            психически и физически здоровый котенок, игривый, жизнерадостный, самостоятельный и
-                            воспитанный, не спешите забирать его от кошки-мамы раньше трех месяцев.</div>
+                        <div class="faq__answer">Есть важная причина, почему котенка стоит забирать домой только после трех месяцев, — это вакцинация. Первые прививки животному делают в возрасте 8 недель. Ревакцинация проводится через 3–4 недели. То есть котенок, покидающий дом позднее 12 недель, максимально защищен от различных вирусов и инфекций. Так что, чтобы в дома появился психически и физически здоровый котенок, игривый, жизнерадостный, самостоятельный и воспитанный, не спешите забирать его от кошки-мамы раньше трех месяцев.</div>
                     </div>
                 </li>
-                <li class="questions__element">
-                    <div class="questions__element-index">02</div>
-                    <div class="questions__element-context">
-                        <div class="questions__asked-block">
-                            <p class="questions__asked">Как зарезервировать котенка?</p>
-                            <button class="questions__switcher questions__switcher--closed" type="button">Скрыть или
-                                показать ответ на вопрос</button>
+                <li class="faq__element">
+                    <div class="faq__element-index accent__element accent__element--text">02</div>
+                    <div class="faq__element-context">
+                        <div class="faq__asked-block">
+                            <p class="faq__asked">Как зарезервировать котенка?</p>
+                            <button class="faq__switcher faq__switcher--closed" type="button">Показать ответ на вопрос</button>
                         </div>
-                        <div class="questions__answer"></div> <!-- должен быть скрыт, т.к. область закрыта-->
                     </div>
                 </li>
-                <li class="questions__element">
-                    <div class="questions__element-index">03</div>
-                    <div class="questions__element-context">
-                        <div class="questions__asked-block">
-                            <p class="questions__asked">Можно ли купить кота, если я живу в другом городе?</p>
-                            <button class="questions__switcher questions__switcher--closed" type="button">Скрыть или
-                                показать ответ на вопрос</button>
+                <li class="faq__element">
+                    <div class="faq__element-index accent__element accent__element--text">03</div>
+                    <div class="faq__element-context">
+                        <div class="faq__asked-block">
+                            <p class="faq__asked">Можно ли купить кота, если я живу в другом городе?</p>
+                            <button class="faq__switcher faq__switcher--closed" type="button">Показать ответ на вопрос</button>
                         </div>
-                        <div class="questions__answer"></div> <!-- должен быть скрыт, т.к. область закрыта-->
                     </div>
                 </li>
-                <li class="questions__element">
-                    <div class="questions__element-index">04</div>
-                    <div class="questions__element-context">
-                        <div class="questions__asked-block">
-                            <p class="questions__asked">Как подготовить дом к приему нового питомца?</p>
-                            <button class="questions__switcher questions__switcher--closed" type="button">Скрыть или
-                                показать ответ на вопрос</button>
+                <li class="faq__element">
+                    <div class="faq__element-index accent__element accent__element--text">04</div>
+                    <div class="faq__element-context">
+                        <div class="faq__asked-block">
+                            <p class="faq__asked">Как подготовить дом к приему нового питомца?</p>
+                            <button class="faq__switcher faq__switcher--closed" type="button">Показать ответ на вопрос</button>
                         </div>
-                        <div class="questions__answer"></div> <!-- должен быть скрыт, т.к. область закрыта-->
                     </div>
                 </li>
             </ul>
@@ -213,23 +182,18 @@
             <h2 class="feedback__headline">Отзывы</h2>
             <button type="button">Предыдущий отзыв</button> <!-- появляется на более мелком разрешении -->
             <div class="feedback__commentator">
-                <img class="feedback__commentator-photo" src="#" with="" height="" alt="Фотография комментатора">
+                <img class="feedback__commentator-photo" src="#" width="#" height="#" alt="Фотография комментатора">
                 <div class="feedback__about-commentator">
                     <h3 class="feedback__commentator-headline">Серёжа Попов</h3>
-                    <p class="feedback__commentator-opinion">Я выражаю огромную благодарность вашему питомнику. Мой
-                        Феликс
-                        невероятно умен и воспитан. Огромным плюсом питомника является возможность консультироваться в
-                        любое время</p>
-                    <div class="feedback__additional-info">
-                        <span class="feedback__date-feedback">24 мая 2018</span>
-                        <ol class="social__block feedback__social">
-                            <li class="social__element-wrapper feedback__social-element-wrapper">
-                                <a class="social__element feedback__social-element feedback__social-element--tw"
-                                    href="https://twitter.com/">Твиттер</a>
+                    <p class="feedback__commentator-opinion">Я выражаю огромную благодарность вашему питомнику. Мой Феликс невероятно умен и воспитан. Огромным плюсом питомника является возможность консультироваться в любое время</p>
+                    <div class="feedback__additional-info accent">
+                        <span class="feedback__date-feedback accent__element accent__element--text">24 мая 2018</span>
+                        <ol class="social">
+                            <li class="social__element-wrapper">
+                                <a class="social__element social__element--tw" href="https://twitter.com/">Твиттер</a>
                             </li>
-                            <li class="social__element-wrapper feedback__social-element-wrapper">
-                                <a class="social__element feedback__social-element feedback__social-element--vk"
-                                    href="https://vk.com/">ВКонтакте</a>
+                            <li class="social__element-wrapper">
+                                <a class="social__element social__element--vk" href="https://vk.com/">ВКонтакте</a>
                             </li>
                         </ol>
                     </div>
@@ -241,20 +205,17 @@
     <footer class="footer">
         <div class="footer__wrapper">
             <a class="footer__logo">
-                <img class='' src='#' width="" height="" alt="Логотип питомника Мейн-Кунов">
+                <img class="#" src="#" width="#" height="#" alt="Логотип питомника Мейн-Кунов">
             </a>
-            <ol class="social__block footer__social">
-                <li class="social__element-wrapper footer__social-element-wrapper">
-                    <a class="social__element footer__social-element footer__social-element--fb"
-                        href="https://www.facebook.com/">Фейсбук</a>
+            <ol class="social">
+                <li class="social__element-wrapper">
+                    <a class="social__element social__element--fb" href="https://www.facebook.com/">Фейсбук</a>
                 </li>
-                <li class="social__element-wrapper footer__social-element-wrapper">
-                    <a class="social__element footer__social-element footer__social-element--tw"
-                        href="https://twitter.com/">Твиттер</a>
+                <li class="social__element-wrapper">
+                    <a class="social__element social__element--tw" href="https://twitter.com/">Твиттер</a>
                 </li>
-                <li class="social__element-wrapper footer__social-element-wrapper">
-                    <a class="social__element footer__social-element footer__social-element--vk"
-                        href="https://vk.com/">ВКонтакте</a>
+                <li class="social__element-wrapper">
+                    <a class="social__element social__element--vk" href="https://vk.com/">ВКонтакте</a>
                 </li>
             </ol>
             <section class="footer__contact-details">
@@ -264,5 +225,4 @@
         </div>
     </footer>
 </body>
-
 </html>
