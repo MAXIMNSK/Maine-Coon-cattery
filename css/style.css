@@ -1,0 +1,185 @@
+/* технический долг:
+разобраться и переназначить где надо font-weight
+проверить везде ли корректные размеры текста применяются
+*/
+
+/* шрифты для проекта */
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Roboto'),
+        url('../fonts/Roboto.woff2') format('woff2'),
+        url('../fonts/Roboto.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Yeseva One';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Yeseva One'),
+        url('../fonts/YesevaOne.woff2') format('woff2'),
+        url('../fonts/YesevaOne.woff') format('woff');
+}
+
+/* глобальные стили */
+body {
+    color: #ffffff;
+    font-size: 16px;
+    font-family: 'Roboto', 'Arial', sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+/* группа акцентируемых цветов*/
+.accent__element--text {
+    color: #A07B50;
+}
+
+.accent__element--border {
+    border: 0.5px solid #A07B50;
+}
+
+h1, h2 {
+    font-family: 'Yeseva One', 'Times New Roman', serif;
+}
+
+/* h1, h2, h3 {
+    outline: 1px solid rgba(255, 255, 0, 0.5);
+}
+
+p {
+    outline: 1px solid rgba(255, 140, 0, 0.5);
+}
+
+section {
+    outline: 1px solid red;
+} */
+
+/* хедер сайта */
+header {
+    background-color: #181617;
+}
+
+.header__context-headline {
+    font-size: 52px;
+}
+
+.header__context-btn {
+    color: #ffffff;
+    font-size: 14px;
+
+    padding: 18px 35px;
+}
+
+/* тело сайта */
+main {
+    padding-top: 50px;
+
+    background-color: #1F1C1D;
+}
+
+    /* Питомцы */
+.catalog__headline {
+    font-size: 36px;
+}
+
+.catalog__watch-more-btn {
+    color: #ffffff;
+    font-size: 14px;
+
+    padding: 18px 40px;
+}
+
+    /* Особенности породы */
+.features__headline {
+    font-size: 36px;
+}
+
+.features__element {
+    font-size: 14px;
+}
+
+    /* Почему именно мы */
+.why-we {
+    background-color: #151313;
+}
+
+.why-we__headline {
+    font-size: 36px;
+}
+
+    /* Об уходе за Мейн-Куном */
+.cat-care__headline {
+    font-size: 36px;
+}
+
+.cat-care__element-headline {
+    font-size: 22px;
+}
+
+.cat-care__element-context {
+    font-size: 14px;
+}
+
+    /* Наша команда */
+.team {
+    background-color: #151313;
+}
+
+.team__headline {
+    font-size: 36px;
+}
+
+.team__person-headline {
+    font-size: 24px;
+}
+
+    /* Вопрос - ответ */
+.faq__headline {
+    font-size: 36px;
+}
+
+.faq__element-index {
+    font-size: 70px;
+}
+
+.faq__switcher--opened {
+    background-color: #A07B50;
+}
+
+.faq__switcher--closed {
+    background-color: transparent;
+}
+
+    /* Отзывы */
+.feedback__headline {
+    font-size: 36px;
+}
+
+.feedback__commentator-headline {
+    font-size: 24px;
+}
+
+.feedback__commentator-opinion {
+    font-size: 14px;
+}
+
+/* подвал сайта */
+.footer {
+    background-color: #151313;
+}
+
+.footer__contact-details {
+    font-size: 14px;
+}
+
+.footer__tel {
+    color: #ffffff;
+}
