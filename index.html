@@ -14,7 +14,7 @@
 <body>
     <header class="header">
         <a class="header__logo">
-            <img class="#" src="#" width="#" height="#" alt="Логотип питомника Мейн-Кунов">
+            <img class="logo" src="./pictures/logo.svg" width="55" height="25" alt="Логотип питомника Мейн-Кунов">
         </a>
         <div class="header__context-container">
             <ol class="social">
@@ -34,28 +34,28 @@
                 <p class="accent__element accent__element--text">Первый питомник с расширенным спектром услуг</p>
                 <a class="header__context-btn accent__element accent__element--border" href="#">Смотреть котиков</a>
             </section>
-            <img class="header__context-image" src="#" width="#" height="#" alt="Фотография большого рыжего мейн-куна">
+            <img class="header__context-image" src="./pictures/main_background.png" width="1068" height="712" alt="Фотография большого рыжего мейн-куна из питомника">
         </div>
     </header>
     <main>
         <section class="catalog accent">
             <h2 class="catalog__headline">Питомцы</h2>
             <p class="catalog__interpretation accent__element accent__element--text">Все представители нашего питомника имеют ветеринарный паспорт с отметками о прививках и документ с родословной</p>
-            <section class="catalog__slider">
-                <form method="#" action="#"> <!-- выставить метод и адрес отправки -->
-                    <input type="radio" id="radio-1" name="Change group cats" checked>
+            <section class="catalog__slider slider">
+                <form class='catalog__form' method="#" action="#"> <!-- выставить метод и адрес отправки -->
+                    <input class="visually-hidden" type="radio" id="radio-1" name="Change group cats" checked>
                     <label for="radio-1">Коты</label>
-                    <input type="radio" id="radio-2" name="Change group cats">
+                    <input class="visually-hidden" type="radio" id="radio-2" name="Change group cats">
                     <label for="radio-2">Кошки</label>
-                    <input type="radio" id="radio-3" name="Change group cats">
+                    <input class="visually-hidden" type="radio" id="radio-3" name="Change group cats">
                     <label for="radio-3">Котята</label>
                 </form>
                 <div class="catalog__gallery">
-                    <button type="button">Показать предыдущее животное</button> <!-- появляется на другом разрешении -->
-                    <img class="catalog__gallery-photo" src="#" alt="Котэ из питомника">
-                    <img class="catalog__gallery-photo" src="#" alt="Котэ из питомника">
-                    <img class="catalog__gallery-photo" src="#" alt="Котэ из питомника">
-                    <button type="button">Показать следующее животное</button> <!-- появляется на другом разрешении -->
+                    <button class="catalog__btn-previous slider__btn" type="button">Показать предыдущее животное</button> <!-- появляется на другом разрешении -->
+                    <img class="catalog__gallery-photo" src="./pictures/catalog_photo-1.png" alt="Белый мейн-кун из питомника">
+                    <img class="catalog__gallery-photo" src="./pictures/catalog_photo-2.png" alt="Мейн-Кун из питомника полосатой расцветки">
+                    <img class="catalog__gallery-photo" src="./pictures/catalog_photo-3.png" alt="Серый мейн-кун из питомника">
+                    <button class="catalog__btn-following slider__btn" type="button">Показать следующее животное</button> <!-- появляется на другом разрешении -->
                 </div>
             </section>
             <a class="catalog__watch-more-btn accent__element accent__element--border" href="#">Смотреть больше</a>
@@ -63,7 +63,7 @@
         <section class="features accent">
             <h2 class="features__headline">Особенности породы</h2>
             <p class="features__interpretation accent__element accent__element--text">Мейн-Кун - это порода, которая вызывает к себе уважение. Приобретая в свой дом этого питомца, вы получите умное животное, которому нет равных</p>
-            <img class="features__background" src="#" width="#" height="#" alt="Инфографика мейн-куна, с его особенностями">
+            <div class="features__background-wrapper"></div>
             <ol class="features__list">
                 <li class="features__element">Легко уживается в семьях с детьми или другими животными</li>
                 <li class="features__element">Внешний вид этой кошки похож на дикую рысь</li>
@@ -75,64 +75,68 @@
             <h2 class="why-we__headline">Почему именно мы?</h2>
             <p class="why-we__interpretation accent__element accent__element--text">Приобретая животное в нашем питомнике, вы получите</p>
             <ol class="why-we__bonuses-list">
-                <li class="why-we__bonus-element">Бесплатное ветеринарное обслуживание 5 лет</li>
-                <li class="why-we__bonus-element">Консультирование по любому вопросу 24 часа в сутки</li>
-                <li class="why-we__bonus-element">Индивидуальный подбор питания для вашего кота</li>
+                <li class="why-we__bonus-element">
+                    <p>Бесплатное ветеринарное обслуживание 5 лет</p>
+                </li>
+                <li class="why-we__bonus-element">
+                    <p>Консультирование по любому вопросу 24 часа в сутки</p>
+                </li>
+                <li class="why-we__bonus-element">
+                    <p>Индивидуальный подбор питания для вашего кота</p>
+                </li>
             </ol>
         </section>
-        <section class="cat-care">
-            <h2 class="cat-care__headline">Об уходе за Мейн-Куном</h2>
-            <div class="cat-care__content-wrapper accent">
+        <section class="care">
+            <h2 class="care__headline">Об уходе за Мейн-Куном</h2>
+            <div class="care__content-wrapper accent">
                 <!-- не список лишь потому, что я не помню, можно ли заголовки вставлять в список -->
-                <div class="cat-care__element">
-                    <h3 class="cat-care__element-headline accent__element accent__element--text">Шерсть</h3>
-                    <p class="cat-care__element-context">Мы разработали 8 правил, следуя которым, шерсть вашего кота всегда будет блестящей, мягкой и послушной</p>
-                    <button class="cat-care__element-btn" type="button">Подробнее</button>
+                <div class="care__element">
+                    <h3 class="care__element-headline accent__element accent__element--text">Шерсть</h3>
+                    <p class="care__element-context">Мы разработали 8 правил, следуя которым, шерсть вашего кота всегда будет блестящей, мягкой и послушной</p>
+                    <button class="care__element-btn" type="button">Подробнее</button>
                 </div>
-                <div class="cat-care__element">
-                    <h3 class="cat-care__element-headline accent__element accent__element--text">Когти</h3>
-                    <p class="cat-care__element-context">Нужно ли стричь когти? Это мы и выясним, плюс ко всему расскажем как подобрать идеальную когтеточку</p>
-                    <button class="cat-care__element-btn" type="button">Подробнее</button>
+                <div class="care__element">
+                    <h3 class="care__element-headline accent__element accent__element--text">Когти</h3>
+                    <p class="care__element-context">Нужно ли стричь когти? Это мы и выясним, плюс ко всему расскажем как подобрать идеальную когтеточку</p>
+                    <button class="care__element-btn" type="button">Подробнее</button>
                 </div>
-                <div class="cat-care__element">
-                    <h3 class="cat-care__element-headline accent__element accent__element--text">Уши и глаза</h3>
-                    <p class="cat-care__element-context">Владельцам котов необходимо регулярно осматривать ушки и глаза своих питомцев, ведь это может быть признаками заболевания</p>
-                    <button class="cat-care__element-btn" type="button">Подробнее</button>
+                <div class="care__element">
+                    <h3 class="care__element-headline accent__element accent__element--text">Уши и глаза</h3>
+                    <p class="care__element-context">Владельцам котов необходимо регулярно осматривать ушки и глаза своих питомцев, ведь это может быть признаками заболевания</p>
+                    <button class="care__element-btn" type="button">Подробнее</button>
                 </div>
-                <div class="cat-care__element">
-                    <h3 class="cat-care__element-headline accent__element accent__element--text">Питание</h3>
-                    <p class="cat-care__element-context">В нашем питомнике существует два подхода: натуральное питание и питание промышленными кормами, но выбирать только вам</p>
-                    <button class="cat-care__element-btn" type="button">Подробнее</button>
+                <div class="care__element">
+                    <h3 class="care__element-headline accent__element accent__element--text">Питание</h3>
+                    <p class="care__element-context">В нашем питомнике существует два подхода: натуральное питание и питание промышленными кормами, но выбирать только вам</p>
+                    <button class="care__element-btn" type="button">Подробнее</button>
                 </div>
             </div>
         </section>
         <section class="team accent">
             <h2 class="team__headline">Наша команда</h2>
             <p class="team__interpretation accent__element accent__element--text">Все сотрудники нашего питомника дипломированые специалисты в области фелинологии и ветеринарии</p>
-            <div class="team__slider-wrapper">
-                <div class="team__slider">
-                    <button type="button">Предыдущий сотрудник</button>
-                    <div class="team__person">
-                        <img class="team__person-photo" src="#" width="#" height="#" alt="Фотография члена команды питомника мейн-кунов">
-                        <div class="team__about-person">
-                            <h3 class="team__person-headline accent__element accent__element--text">Серёжа Попов</h3>
-                            <span class="team__person-rank accent__element accent__element--text">Основатель питомника</span>
-                            <p class="team__person-opinion">Наш питомник занимается разведением Мейн-Кунов на протяжении 15 лет. Мы в ответе за каждого приобретенного вами питомца</p>
-                            <ol class="social">
-                                <li class="social__element-wrapper">
-                                    <a class="social__element social__element--fb" href="https://www.facebook.com/">Фейсбук</a>
-                                </li>
-                                <li class="social__element-wrapper">
-                                    <a class="social__element social__element--tw" href="https://twitter.com/">Твиттер</a>
-                                </li>
-                                <li class="social__element-wrapper">
-                                    <a class="social__element social__element--vk" href="https://vk.com/">ВКонтакте</a>
-                                </li>
-                            </ol>
-                        </div>
+            <div class="team__slider slider">
+                <button class="team__btn-previous slider__btn" type="button">Предыдущий сотрудник</button>
+                <div class="team__person">
+                    <img class="team__person-photo" src="./pictures/team_author.jpg" width="360" height="356" alt="Фотография члена команды питомника мейн-кунов">
+                    <div class="team__about-person">
+                        <h3 class="team__person-headline accent__element accent__element--text">Серёжа Попов</h3>
+                        <span class="team__person-rank accent__element accent__element--text">Основатель питомника</span>
+                        <p class="team__person-opinion">Наш питомник занимается разведением Мейн-Кунов на протяжении 15 лет. Мы в ответе за каждого приобретенного вами питомца</p>
+                        <ol class="social">
+                            <li class="social__element-wrapper">
+                                <a class="social__element social__element--fb" href="https://www.facebook.com/">Фейсбук</a>
+                            </li>
+                            <li class="social__element-wrapper">
+                                <a class="social__element social__element--tw" href="https://twitter.com/">Твиттер</a>
+                            </li>
+                            <li class="social__element-wrapper">
+                                <a class="social__element social__element--vk" href="https://vk.com/">ВКонтакте</a>
+                            </li>
+                        </ol>
                     </div>
-                    <button type="button">Следующий сотрудник</button>
                 </div>
+                <button class="team__btn-following slider__btn" type="button">Следующий сотрудник</button>
             </div>
         </section>
         <section class="faq accent">
@@ -180,32 +184,34 @@
         </section>
         <section class="feedback">
             <h2 class="feedback__headline">Отзывы</h2>
-            <button type="button">Предыдущий отзыв</button> <!-- появляется на более мелком разрешении -->
-            <div class="feedback__commentator">
-                <img class="feedback__commentator-photo" src="#" width="#" height="#" alt="Фотография комментатора">
-                <div class="feedback__about-commentator">
-                    <h3 class="feedback__commentator-headline">Серёжа Попов</h3>
-                    <p class="feedback__commentator-opinion">Я выражаю огромную благодарность вашему питомнику. Мой Феликс невероятно умен и воспитан. Огромным плюсом питомника является возможность консультироваться в любое время</p>
-                    <div class="feedback__additional-info accent">
-                        <span class="feedback__date-feedback accent__element accent__element--text">24 мая 2018</span>
-                        <ol class="social">
-                            <li class="social__element-wrapper">
-                                <a class="social__element social__element--tw" href="https://twitter.com/">Твиттер</a>
-                            </li>
-                            <li class="social__element-wrapper">
-                                <a class="social__element social__element--vk" href="https://vk.com/">ВКонтакте</a>
-                            </li>
-                        </ol>
+            <div class="feedback__slider slider">
+                <button class="feedback__btn-previous slider__btn" type="button">Предыдущий отзыв</button> <!-- появляется на более мелком разрешении -->
+                <div class="feedback__commentator">
+                    <img class="feedback__commentator-photo" src="./pictures/feedback_author.jpg" width="481" height="331" alt="Фотография комментатора">
+                    <div class="feedback__about-commentator">
+                        <h3 class="feedback__commentator-headline">Серёжа Попов</h3>
+                        <p class="feedback__commentator-opinion">Я выражаю огромную благодарность вашему питомнику. Мой Феликс невероятно умен и воспитан. Огромным плюсом питомника является возможность консультироваться в любое время</p>
+                        <div class="feedback__additional-info accent">
+                            <span class="feedback__date-feedback accent__element accent__element--text">24 мая 2018</span>
+                            <ol class="social">
+                                <li class="social__element-wrapper">
+                                    <a class="social__element social__element--tw" href="https://twitter.com/">Твиттер</a>
+                                </li>
+                                <li class="social__element-wrapper">
+                                    <a class="social__element social__element--vk" href="https://vk.com/">ВКонтакте</a>
+                                </li>
+                            </ol>
+                        </div>
                     </div>
                 </div>
+                <button class="feedback__btn-following slider__btn" type="button">Следующий отзыв</button> <!-- появляется на более мелком разрешении -->
             </div>
-            <button type="button">Следующий отзыв</button> <!-- появляется на более мелком разрешении -->
         </section>
     </main>
     <footer class="footer">
         <div class="footer__wrapper">
             <a class="footer__logo">
-                <img class="#" src="#" width="#" height="#" alt="Логотип питомника Мейн-Кунов">
+                <img class="logo" src="./pictures/logo.svg" width="47" height="21" alt="Логотип питомника Мейн-Кунов">
             </a>
             <ol class="social">
                 <li class="social__element-wrapper">
