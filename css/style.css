@@ -3,6 +3,7 @@
 проверить везде ли корректные размеры текста применяются
 собрать все svg в один спрайт и подключить в начале body
 организовать наследование цвету текста и пр. свойствам, например ссылкам, что бы не дублировать стили
+допилить декоративный элемент из header, над социалками
 */
 
 /* шрифты для проекта */
@@ -26,17 +27,62 @@
 
 /* глобальные стили */
 body {
-    color: #ffffff;
+    color: #FFFFFF;
     font-size: 16px;
     font-family: "Roboto", "Arial", sans-serif;
 }
 
+/* от этого глобального правила возможно избавиться */
 a {
     text-decoration: none;
 }
 
 img {
     max-width: 100%;
+}
+
+.social {
+    font-size: 0;
+    text-decoration: none;
+
+    list-style: none;
+
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    flex-direction: row;
+
+    outline: 1px solid blueviolet;
+}
+
+.social__element-wrapper {
+    padding: 5px;
+}
+
+.social__element {
+    width: 15px;
+    height: 15px;
+
+    background-repeat: no-repeat;
+    background-position: 50%;
+
+    display: block;
+}
+
+.social__element--vk {
+    background-image: url("../pictures/social_vk.svg");
+    background-size: 13px 8px;
+}
+
+.social__element--tw {
+    background-image: url("../pictures/social_twitter.svg");
+    background-size: 15px 10px;
+}
+
+.social__element--fb {
+    background-image: url("../pictures/social_facebook.svg");
+    background-size: 5px 11px;
 }
 
 /* visually hidden - прятки элемента, но что бы скринридеры видели его */
@@ -46,117 +92,423 @@ img {
     width: 1px;
     height: 1px;
     margin: -1px;
-  }
-
-/* группа акцентируемых цветов*/
-.accent__element--text {
-    color: #A07B50;
 }
 
-.accent__element--border {
-    border: 0.5px solid #A07B50;
-}
+.align-container {
+    width: 1366px;
 
-h1, h2 {
-    font-family: "Yeseva One", "Times New Roman", serif;
+    display: flex;
+    flex-direction: column;
+
+    outline: 1px solid goldenrod;
 }
 
 /* хедер сайта */
-header {
+.header {
     background-color: #181617;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    outline: 1px solid darkred;
+}
+
+.header__logo {
+    margin-top: 33px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.header__context-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.header__context {
+    padding: 96px 0 0 203px;
+
+    position: relative;
+}
+
+.header__context .social {
+    flex-direction: column;
+
+    position: absolute;
+    bottom: 59px;
+    left: 72px;
+}
+
+.header__context-city {
+    color: #A07B50;
+
+    margin: 0;
 }
 
 .header__context-headline {
+    width: 350px;
+
     font-size: 52px;
+    font-family: "Yeseva One", "Times New Roman", serif;
+    font-weight: 400;
+
+    margin: 21px 0 0 -1px;
 }
 
-.header__context-btn {
+.header__context-interpretation {
+    width: 300px;
+
+    color: #A07B50;
+    line-height: 24px;
+
+    margin: 17px 0 65px 0;
+
+    outline: 1px solid yellow;
+}
+
+.header__context-link {
     color: inherit;
     font-size: 14px;
     font-weight: 700;
 
-    padding: 18px 35px;
+    padding: 18px 43px 17px 35px;
+
+    border: 0.5px solid #A07B50;
+}
+
+.header__context-image {
+    margin: -91px 0 0 -205px;
 }
 
 /* тело сайта */
-main {
+.main {
     padding-top: 50px;
 
     background-color: #1F1C1D;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    outline: 1px solid darkred;
 }
 
     /* Питомцы */
+.catalog {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .catalog__headline {
+    font-family: "Yeseva One", "Times New Roman", serif;
     font-size: 36px;
+
+    margin: 173px 0 0 0;
 }
 
 .catalog__interpretation {
+    width: 523px;
+
+    color: #A07B50;
     font-weight: 300;
+    line-height: 26px;
+    text-align: center;
+
+    margin: 20px 0 0 0;
+
+    outline: 1px solid yellow;
 }
 
-.catalog__form label {
+.catalog__slider {
+    padding: 45px 0 0 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.catalog__form {
+    margin: 0 0 0 -18px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.catalog__form-element {
     font-weight: 500;
+
+    margin: 0 15px;
+    padding: 0 10px;
+}
+
+.catalog__form-element--active {
+    color: rgba(255, 255, 255, 1);
+}
+
+.catalog__form-element--deactive {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.catalog__gallery {
+    width: 1100px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.catalog__gallery-wrapper {
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.catalog__gallery-photo-wrapper {
+    width: 100%;
+
+    overflow: hidden;
+}
+
+.catalog__gallery-photo-wrapper--top {
+
+}
+
+.catalog__gallery-photo-wrapper--bottom {
+
+}
+
+.catalog__gallery-photo-wrapper--right {
+
+}
+
+.catalog__btn-previous,
+.catalog__btn-following {
+    display: none;
 }
 
 .catalog__gallery-btn {
     display: none;
 }
 
-.catalog__watch-more-btn {
+.catalog__watch-more-link {
     color: inherit;
     font-size: 14px;
     font-weight: 700;
 
     padding: 18px 40px;
+
+    border: 0.5px solid #A07B50;
 }
 
     /* Особенности породы */
+.features {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .features__headline {
+    font-family: "Yeseva One", "Times New Roman", serif;
     font-size: 36px;
 }
 
 .features__interpretation {
-    font-weight: 300;
-}
+    width: 753px;
 
-.features__element {
+    color: #A07B50;
     font-weight: 300;
+    text-align: center;
+
+    outline: 1px solid yellow;
 }
 
 .features__background-wrapper {
-    background-image: url("../pictures/features_infographics.svg"), url("../pictures/features_cat.png");
+    width: 653px;
+    min-height: 750px;
+
+    background-image:
+        url("../pictures/features_cat.png"),
+        url("../pictures/features_infographics.svg");
     background-size: auto, auto;
     background-position: 50%, 50%;
     background-repeat: no-repeat, no-repeat;
+
+    position: relative;
+}
+
+.features__list {
+    list-style: none;
+
+    margin: 0;
+    padding: 0;
+
+    position: relative;
 }
 
 .features__element {
+    width: 240px;
+
     font-size: 14px;
+    font-weight: 300;
+
+    position: absolute;
+}
+
+.features__element:not(:nth-child(2n)) {
+    text-align: right;
+}
+
+.features__element:nth-child(1) {
+    top: 200px;
+    left: -200px;
+}
+
+.features__element:nth-child(2) {
+    top: 300px;
+    right: -250px;
+}
+
+.features__element:nth-child(3) {
+    width: 210px;
+
+    top: 480px;
+    left: -200px;
+}
+
+.features__element:nth-child(4) {
+    width: 150px;
+
+    top: 525px;
+    right: -130px;
 }
 
     /* Почему именно мы */
 .why-we {
+    width: 100%;
+
     background-color: #151313;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.why-we .align-container {
+    align-items: center;
 }
 
 .why-we__headline {
+    font-family: "Yeseva One", "Times New Roman", serif;
     font-size: 36px;
 }
 
 .why-we__interpretation {
+    color: #A07B50;
     font-weight: 400;
+
+    outline: 1px solid yellow;
 }
 
-.why-we__bonus-element p {
+.why-we__bonuses-list {
+    width: 100%;
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.why-we__bonus-element {
+    width: 320px;
+    height: 267px;
+
+    padding: 17px 20px;
+
+    background-color: #1F1C1D;
+}
+
+.why-we__bonus-description-wrapper {
+    width: 100%;
+    height: 100%;
+
+    border: 1px solid #1F1C1D;
+
+    background-color: #1F1C1D;
+
+    background-image: url("../pictures/why-we_veterinarian.svg");
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: 98px 107px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+}
+
+.why-we__bonus-description {
+    text-align: center;
     font-weight: 300;
+
+    margin: 0;
+    padding: 0 35px;
 }
 
     /* Об уходе за Мейн-Куном */
+.care {
+    background-image: url("../pictures/care_background.jpg");
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .care__headline {
+    font-family: "Yeseva One", "Times New Roman", serif;
     font-size: 36px;
 }
 
+.care__content-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.care__element {
+    width: 559px;
+
+    margin-bottom: 43px;
+
+    border: 0.5px solid #A07B50;
+
+    display: flex;
+    flex-direction: row;
+}
+
+.care__element-content-wrapper {
+    padding: 18px 47px 23px 59px;
+}
+
+.care__element-content-wrapper--shadow-background {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
 .care__element-headline {
+    color: #A07B50;
     font-size: 22px;
     font-weight: 700;
 }
@@ -166,18 +518,118 @@ main {
     font-weight: 300;
 }
 
+.care__element-btn {
+    width: 60px;
+    height: auto;
+
+    font-size: 0;
+
+    background-color: #A07B50;
+
+    border: none;
+}
+
     /* Наша команда */
 .team {
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
     background-color: #151313;
 }
 
+.team .align-container {
+    align-items: center;
+}
+
 .team__headline {
+    font-family: "Yeseva One", "Times New Roman", serif;
     font-size: 36px;
 }
 
+.team__interpretation {
+    width: 510px;
+
+    text-align: center;
+    color: #A07B50;
+
+    outline: 1px solid yellow;
+}
+
+.team__slider {
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.team__btn-previous,
+.team__btn-following {
+    font-size: 0;
+
+    background-image: url("../pictures/arrow.svg");
+    background-size: 12px 29px;
+    background-repeat: no-repeat;
+    background-position: 50%;
+
+    background-color: transparent;
+    
+    border: none;
+
+    outline: 1px solid white;
+}
+
+.team__btn-previous {
+    transform: rotate(180deg);
+}
+
+.team__person {
+    width: 994px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    outline: 1px solid red;
+}
+
+.team__person-photo {
+    position: relative;
+    left: 50px;
+}
+
+.team__person-info {
+    padding: 25px 30px;
+
+    background-color: transparent;
+
+    outline: 1px solid yellow;
+}
+
+.team__inter-wrapper {
+    padding: 70px 100px;
+
+    background-color: #1F1C1D;
+
+    display: flex;
+    flex-direction: column;
+
+    outline: 1px solid rgb(52, 140, 170);
+}
+
 .team__person-headline {
+    color: #A07B50;
     font-size: 24px;
     font-weight: 500;
+
+    margin: 0;
+}
+
+.team__person-rank {
+    color: #A07B50;
 }
 
 .team__person-opinion {
@@ -185,34 +637,162 @@ main {
 }
 
     /* Вопрос - ответ */
+.faq {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .faq__headline {
+    font-family: "Yeseva One", "Times New Roman", serif;
     font-size: 36px;
 }
 
+.faq__interpretation {
+    color: #A07B50;
+}
+
+.faq__list {
+    width: 940px;
+
+    list-style: none;
+
+    margin: 0;
+    padding: 0;
+
+    outline: 1px solid red;
+}
+
+.faq__element {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    outline: 1px solid yellow;
+}
+
+.faq__element:not(:last-child) {
+    margin: 0 0 50px 0;
+}
+
 .faq__element-index {
+    color: #A07B50;
     font-size: 70px;
     font-weight: 700;
+
+    outline: 1px solid cyan;
+}
+
+.faq__element-context {
+    width: 793px;
+
+    outline: 1px solid lime;
+}
+
+.faq__asked-block {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .faq__asked {
+    width: 100%;
+
     font-weight: 500;
+
+    margin: 0;
+    padding: 0 0 0 43px;
+
+    outline: 1px solid yellow;
 }
 
 .faq__answer {
     font-weight: 300;
+
+    padding: 40px 43px;
+
+    outline: 1px solid red;
+}
+
+.faq__switcher {
+    width: 104px;
+    height: 110px;
+
+    font-size: 0;
+
+    border: none;
+
+    background-color: transparent;
+
+    background-position: 50%;
+    background-repeat: no-repeat;
+
+    outline: 1px solid cyan;
 }
 
 .faq__switcher--opened {
     background-color: #A07B50;
+
+    background-image: url("../pictures/faq_hide.svg");
+    background-size: 16px 1px;
 }
 
 .faq__switcher--closed {
     background-color: transparent;
+
+    background-image: url("../pictures/faq_show.svg");
+    background-size: 26px 57px;
 }
 
     /* Отзывы */
+.feedback {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .feedback__headline {
+    font-family: "Yeseva One", "Times New Roman", serif;
     font-size: 36px;
+}
+
+.feedback__slider {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.feedback__btn-previous,
+.feedback__btn-following {
+    display: none;
+}
+
+.feedback__commentator {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    outline: 1px solid white;
+}
+
+.feedback__commentator-photo {
+    position: relative;
+    top: 50px;
+    left: 100px;
+}
+
+.feedback__commentator-info {
+    width: 640px;
+    
+    background-color: #151313;
+
+    padding: 109px 0 107px 145px;
+
+    display: flex;
+    flex-direction: column;
+
+    outline: 1px solid red;
 }
 
 .feedback__commentator-headline {
@@ -226,19 +806,48 @@ main {
 }
 
 .feedback__date-feedback {
+    color: #A07B50;
     font-size: 12px;
 }
 
 /* подвал сайта */
 .footer {
+    width: 100%;
+    min-height: 156px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
     background-color: #151313;
+
+    outline: 1px solid darkred;
+}
+
+.footer .align-container {
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .footer__contact-details {
     font-size: 14px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    outline: 1px solid red;
+}
+
+.footer__adress {
+    margin: 0;
 }
 
 .footer__tel {
     color: inherit;
     font-weight: 700;
+
+    margin: 0 0 0 100px;
 }
