@@ -10,7 +10,6 @@
 
 <!-- все цитаты нужно обернуть в blocquote -->
 <!-- прочитать про aria-label, и внедрить на логотипы. Не забыть что логотип это img в ссылке-->
-<!-- можно ли писать модификатор без элемента в классе? -->
 
 <body>
     <header class="header">
@@ -28,6 +27,9 @@
                     <a class="header__context-link" href="#">Смотреть котиков</a>
                     <ol class="social">
                         <li class="social__element-wrapper">
+                            <a class="social__decorative-element" href="#">Декоративный элемент</a>
+                        </li>
+                        <li class="social__element-wrapper">
                             <a class="social__element social__element--vk" href="https://vk.com/">ВКонтакте</a>
                         </li>
                         <li class="social__element-wrapper">
@@ -44,39 +46,39 @@
     </header>
     <main class="main">
         <div class="align-container">
-            <section class="catalog">
-                <h2 class="catalog__headline">Питомцы</h2>
-                <p class="catalog__interpretation">Все представители нашего питомника имеют ветеринарный паспорт с отметками о прививках и документ с родословной</p>
-                <section class="catalog__slider slider">
-                    <form class="catalog__form" method="#" action="#"> <!-- выставить метод и адрес отправки -->
+            <section class="gallery">
+                <h2 class="gallery__headline">Питомцы</h2>
+                <p class="gallery__interpretation">Все представители нашего питомника имеют ветеринарный паспорт с отметками о прививках и документ с родословной</p>
+                <section class="gallery__slider slider">
+                    <form class="gallery__form" method="#" action="#"> <!-- выставить метод и адрес отправки -->
                         <input class="visually-hidden" type="radio" id="radio-1" name="Change group cats" checked>
-                        <label class="catalog__form-element catalog__form-element--active" for="radio-1">Коты</label>
+                        <label class="gallery__form-element gallery__form-element--active" for="radio-1">Коты</label>
 
                         <input class="visually-hidden" type="radio" id="radio-2" name="Change group cats">
-                        <label class="catalog__form-element catalog__form-element--deactive" for="radio-2">Кошки</label>
+                        <label class="gallery__form-element gallery__form-element--deactive" for="radio-2">Кошки</label>
 
                         <input class="visually-hidden" type="radio" id="radio-3" name="Change group cats">
-                        <label class="catalog__form-element catalog__form-element--deactive" for="radio-3">Котята</label>
+                        <label class="gallery__form-element gallery__form-element--deactive" for="radio-3">Котята</label>
                     </form>
-                    <div class="catalog__gallery">
-                        <button class="catalog__btn-previous slider__btn" type="button">Показать предыдущее животное</button> <!-- появляется на другом разрешении -->
-                        <div class="catalog__gallery-wrapper">
-                            <div class="catalog__gallery-photo-wrapper catalog__gallery-photo-wrapper--top">
-                                <img class="catalog__gallery-photo" src="./pictures/catalog_photo-1.jpg" width="519" height="214" alt="Белый мейн-кун из питомника">
+                    <div class="gallery__gallery">
+                        <button class="gallery__btn-previous slider__btn" type="button">Показать предыдущее животное</button> <!-- появляется на другом разрешении -->
+                        <div class="gallery__gallery-wrapper">
+                            <div class="gallery__gallery-photo-wrapper gallery__gallery-photo-wrapper--top">
+                                <img class="gallery__gallery-photo" src="./pictures/gallery_photo-1.png" width="519" height="214" alt="Белый мейн-кун из питомника">
                             </div>
 
-                            <div class="catalog__gallery-photo-wrapper catalog__gallery-photo-wrapper--bottom">
-                                <img class="catalog__gallery-photo" src="./pictures/catalog_photo-2.jpg" width="521" height="290" alt="Мейн-Кун из питомника полосатой расцветки">
+                            <div class="gallery__gallery-photo-wrapper gallery__gallery-photo-wrapper--bottom">
+                                <img class="gallery__gallery-photo" src="./pictures/gallery_photo-2.png" width="535" height="241" alt="Мейн-Кун из питомника полосатой расцветки">
                             </div>
 
-                            <div class="catalog__gallery-photo-wrapper catalog__gallery-photo-wrapper--right">
-                                <img class="catalog__gallery-photo" src="./pictures/catalog_photo-3.jpg" width="474" height="536" alt="Серый мейн-кун из питомника">
+                            <div class="gallery__gallery-photo-wrapper gallery__gallery-photo-wrapper--right">
+                                <img class="gallery__gallery-photo" src="./pictures/gallery_photo-3.png" width="530" height="560" alt="Серый мейн-кун из питомника">
                             </div>
                         </div>
-                        <button class="catalog__btn-following slider__btn" type="button">Показать следующее животное</button> <!-- появляется на другом разрешении -->
+                        <button class="gallery__btn-following slider__btn" type="button">Показать следующее животное</button> <!-- появляется на другом разрешении -->
                     </div>
                 </section>
-                <a class="catalog__watch-more-link" href="#">Смотреть больше</a>
+                <a class="gallery__watch-more-link" href="#">Смотреть больше</a>
             </section>
             <section class="features">
                 <h2 class="features__headline">Особенности породы</h2>
@@ -97,7 +99,7 @@
                 <p class="why-we__interpretation">Приобретая животное в нашем питомнике, вы получите</p>
                 <ol class="why-we__bonuses-list">
                     <li class="why-we__bonus-element">
-                        <div class="why-we__bonus-description-wrapper">
+                        <div class="why-we__bonus-description-wrapper why-we__bonus-description-wrapper--active">
                             <p class="why-we__bonus-description">Бесплатное ветеринарное обслуживание 5 лет</p>
                         </div>
                     </li>
@@ -193,7 +195,10 @@
                                 <p class="faq__asked">С какого возраста можно забирать котенка из питомника?</p>
                                 <button class="faq__switcher faq__switcher--opened" type="button">Показать/скрыть ответ на вопрос</button>
                             </div>
-                            <div class="faq__answer">Есть важная причина, почему котенка стоит забирать домой только после трех месяцев, — это вакцинация. Первые прививки животному делают в возрасте 8 недель. Ревакцинация проводится через 3–4 недели. То есть котенок, покидающий дом позднее 12 недель, максимально защищен от различных вирусов и инфекций. Так что, чтобы в дома появился психически и физически здоровый котенок, игривый, жизнерадостный, самостоятельный и воспитанный, не спешите забирать его от кошки-мамы раньше трех месяцев.</div>
+                            <div class="faq__answer">
+                                <p>Есть важная причина, почему котенка стоит забирать домой только после трех месяцев, — это вакцинация. Первые прививки животному делают в возрасте 8 недель. Ревакцинация проводится через 3–4 недели. То есть котенок, покидающий дом позднее 12 недель, максимально защищен от различных вирусов и инфекций.</p>
+                                <p>Так что, чтобы в дома появился психически и физически здоровый котенок, игривый, жизнерадостный, самостоятельный и воспитанный, не спешите забирать его от кошки-мамы раньше трех месяцев.</p>
+                            </div>
                         </div>
                     </li>
                     <li class="faq__element">
@@ -235,7 +240,7 @@
                         <img class="feedback__commentator-photo" src="./pictures/feedback_author.jpg" width="481" height="331" alt="Фотография комментатора">
                         <div class="feedback__commentator-info">
                             <h3 class="feedback__commentator-headline">Серёжа Попов</h3>
-                            <p class="feedback__commentator-opinion">Я выражаю огромную благодарность вашему питомнику. Мой Феликс невероятно умен и воспитан. Огромным плюсом питомника является возможность консультироваться в любое время</p>
+                            <p class="feedback__commentator-opinion">Я выражаю огромную благодарность вашему питомнику. Мой Феликс невероятно умен и воспитан. Огромным плюсом питомника является возможность консультироваться <br> в любое время</p>
                             <div class="feedback__additional-info">
                                 <span class="feedback__date-feedback">24 мая 2018</span>
                                 <ol class="social">
@@ -257,7 +262,7 @@
     <footer class="footer">
         <div class="align-container">
             <a class="footer__logo">
-                <img class="logo" src="./pictures/logo.svg" width="47" height="21" alt="Логотип питомника Мейн-Кунов">
+                <img class="logo" src="./pictures/logo.svg" width="57" height="30" alt="Логотип питомника Мейн-Кунов">
             </a>
             <ol class="social">
                 <li class="social__element-wrapper">
