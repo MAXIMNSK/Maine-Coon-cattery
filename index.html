@@ -8,14 +8,11 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 
-<!-- все цитаты нужно обернуть в blocquote -->
-<!-- прочитать про aria-label, и внедрить на логотипы -->
-
 <body>
     <header class="header">
         <div class="align-container">
             <div class="header__wrapper-logo">
-                <a class="header__logo" href="#">
+                <a class="header__logo" href="./index.html" aria-label="Логотип-ссылка, ведущая на первую страницу сайта">
                     <img class="logo" src="./pictures/logo.svg" width="59" height="59" alt="Логотип питомника Мейн-Кунов">
                 </a>
             </div>
@@ -26,7 +23,9 @@
                         <p class="header__context-city">Новосибирск</p>
                         <h1 class="header__context-headline">Питомник Мейн-Кунов</h1>
                         <p class="header__context-interpretation">Первый питомник с расширенным спектром услуг</p>
-                        <a class="header__context-link" href="#">Смотреть котиков</a>
+                        <div class="header__context-link-wrapper">
+                            <a class="header__context-link" href="#">Смотреть котиков</a>
+                        </div>
                     </div>
 
                     <ol class="social">
@@ -62,15 +61,15 @@
                 <h2 class="gallery__headline">Питомцы</h2>
                 <p class="gallery__interpretation">Все представители нашего питомника имеют ветеринарный паспорт с отметками о прививках и документ с родословной</p>
                 <section class="gallery__slider slider">
-                    <form class="gallery__form" method="#" action="#"> <!-- выставить метод и адрес отправки -->
+                    <form class="gallery__form" method="POST" action="#">
                         <input class="visually-hidden" type="radio" id="radio-1" name="Change group cats" checked>
-                        <label class="gallery__form-element gallery__form-element--active" for="radio-1">Коты</label>
+                        <label class="gallery__form-element gallery__form-element--active" for="radio-1" tabindex="0">Коты</label>
 
                         <input class="visually-hidden" type="radio" id="radio-2" name="Change group cats">
-                        <label class="gallery__form-element gallery__form-element--deactive" for="radio-2">Кошки</label>
+                        <label class="gallery__form-element gallery__form-element--deactive" for="radio-2" tabindex="0">Кошки</label>
 
                         <input class="visually-hidden" type="radio" id="radio-3" name="Change group cats">
-                        <label class="gallery__form-element gallery__form-element--deactive" for="radio-3">Котята</label>
+                        <label class="gallery__form-element gallery__form-element--deactive" for="radio-3" tabindex="0">Котята</label>
                     </form>
 
                     <div class="gallery__photos-block">
@@ -80,7 +79,7 @@
                                 <picture>
                                     <source media="(max-width: 768px)" srcset="./pictures/gallery_photo-1_table.png 469w" sizes="469px" type="image/png" />
                                     <source media="(min-width: 769px)" srcset="./pictures/gallery_photo-1.png 519w" sizes="519px" type="image/png" />
-                                    <img class="gallery__photo-element" src="#" alt="Белый мейн-кун из питомника">
+                                    <img class="gallery__photo-element" src="#" loading="lazy" alt="Белый мейн-кун из питомника">
                                 </picture>
                             </div>
 
@@ -88,36 +87,39 @@
                                 <picture>
                                     <source media="(max-width: 768px)" srcset="./pictures/gallery_photo-2_table.png 418w" sizes="418px" type="image/png" />
                                     <source media="(min-width: 769px)" srcset="./pictures/gallery_photo-2.png 535w" sizes="535px" type="image/png" />
-                                    <img class="gallery__photo-element" src="#" alt="Полосатый мейн-Кун из питомника">
+                                    <img class="gallery__photo-element" src="#" loading="lazy" alt="Полосатый мейн-Кун из питомника">
                                 </picture>
                             </div>
 
-                            <div class="gallery__photo-wrapper gallery__photo-wrapper--right gallery__photo-wrapper--mobile">
+                            <div class="gallery__photo-wrapper gallery__photo-wrapper--right">
                                 <picture>
                                     <source media="(max-width: 320px)" srcset="./pictures/gallery_photo-3_mobile.jpg 294w" sizes="294px" type="image/jpg" />
                                     <source media="(max-width: 768px)" srcset="./pictures/gallery_photo-3_table.png 474w" sizes="474px" type="image/png" />
                                     <source media="(min-width: 769px)" srcset="./pictures/gallery_photo-3.png 530w" sizes="530px" type="image/png" />
-                                    <img class="gallery__photo-element" src="#" alt="Серый мейн-кун из питомника">
+                                    <img class="gallery__photo-element" src="#" loading="lazy" alt="Серый мейн-кун из питомника">
                                 </picture>
                             </div>
                         </div>
                         <button class="gallery__btn-following slider__btn" type="button">Показать следующее животное</button>
                     </div>
                 </section>
-                <a class="gallery__watch-more-link" href="#">Смотреть больше</a>
+                
+                <div class="gallery__watch-more-wrapper">
+                    <a class="gallery__watch-more-link" href="#">Смотреть больше</a>
+                </div>
             </section>
             <section class="features">
                 <h2 class="features__headline">Особенности породы</h2>
                 <p class="features__interpretation">
-                    <span class='features__interpretation-part'>Мейн-Кун - это порода, которая вызывает к себе уважение.</span>
-                    <span class='features__interpretation-part features__interpretation-part--table-padding'>Приобретая в свой дом этого питомца, вы получите умное животное, которому нет равных</span>
+                    <span class="features__interpretation-part">Мейн-Кун - это порода, которая вызывает к себе уважение.</span>
+                    <span class="features__interpretation-part">Приобретая в свой дом этого питомца, вы получите умное животное, которому нет равных</span>
                 </p>
                 <div class="features__background-wrapper">
                     <ol class="features__list">
                         <li class="features__element">Легко уживается в семьях с детьми или другими животными</li>
                         <li class="features__element">Выполняет команды как дрессированная собака</li>
-                        <li class="features__element">Вес может достигать 12 кг, а длина 1 м</li>
                         <li class="features__element">Внешний вид этой кошки похож на дикую рысь</li>
+                        <li class="features__element">Вес может достигать 12 кг, а длина 1 м</li>
                     </ol>
                 </div>
             </section>
@@ -126,9 +128,10 @@
             <div class="align-container">
                 <h2 class="why-we__headline">Почему именно мы?</h2>
                 <p class="why-we__interpretation">Приобретая животное в нашем питомнике, вы получите</p>
+
                 <ol class="why-we__bonuses-list">
                     <li class="why-we__bonus-element">
-                        <div class="why-we__bonus-description-wrapper why-we__bonus-description-wrapper--active">
+                        <div class="why-we__bonus-description-wrapper">
                             <p class="why-we__bonus-description">Бесплатное ветеринарное обслуживание 5 лет</p>
                         </div>
                     </li>
@@ -154,7 +157,6 @@
                     <span>за Мейн-Куном</span>
                 </h2>
                 <div class="care__content-wrapper">
-                    <!-- не список лишь потому, что я не помню, можно ли заголовки вставлять в список -->
                     <div class="care__element">
                         <div class="care__element-content-wrapper">
                             <h3 class="care__element-headline">Шерсть</h3>
@@ -165,16 +167,16 @@
 
                     <div class="care__element">
                         <div class="care__element-content-wrapper">
-                            <h3 class="care__element-headline">Уши и глаза</h3>
-                            <p class="care__element-context">Владельцам котов необходимо регулярно осматривать ушки и глаза своих питомцев, ведь это может быть признаками заболевания</p>
+                            <h3 class="care__element-headline">Когти</h3>
+                            <p class="care__element-context">Нужно ли стричь когти? Это мы и выясним, плюс ко всему расскажем как подобрать идеальную когтеточку</p>
                         </div>
                         <button class="care__element-btn" type="button">Подробнее</button>
                     </div>
 
                     <div class="care__element">
                         <div class="care__element-content-wrapper">
-                            <h3 class="care__element-headline">Когти</h3>
-                            <p class="care__element-context">Нужно ли стричь когти? Это мы и выясним, плюс ко всему расскажем как подобрать идеальную когтеточку</p>
+                            <h3 class="care__element-headline">Уши и глаза</h3>
+                            <p class="care__element-context">Владельцам котов необходимо регулярно осматривать ушки и глаза своих питомцев, ведь это может быть признаками заболевания</p>
                         </div>
                         <button class="care__element-btn" type="button">Подробнее</button>
                     </div>
@@ -196,12 +198,14 @@
                 <div class="team__slider slider">
                     <button class="team__btn-previous slider__btn" type="button">Предыдущий сотрудник</button>
                     <div class="team__person">
-                        <picture>
-                            <source media="(max-width: 320px)" srcset="./pictures/team_author_mobile.jpg 126w" sizes="126px" type="image/jpg" />
-                            <source media="(max-width: 768px)" srcset="./pictures/team_author_table.jpg 208w" sizes="208px" type="image/jpg" />
-                            <source media="(min-width: 769px)" srcset="./pictures/team_author.jpg 360w" sizes="360px" type="image/jpg" />
-                            <img class="team__person-photo" src="#" alt="Фотография члена команды питомника мейн-кунов">
-                        </picture>
+                        <div class="team__person-photo-wrapper">
+                            <picture>
+                                <source media="(max-width: 320px)" srcset="./pictures/team_author_mobile.jpg 126w" sizes="126px" type="image/jpg" />
+                                <source media="(max-width: 768px)" srcset="./pictures/team_author_table.jpg 208w" sizes="208px" type="image/jpg" />
+                                <source media="(min-width: 769px)" srcset="./pictures/team_author.jpg 360w" sizes="360px" type="image/jpg" />
+                                <img class="team__person-photo" src="#" loading="lazy" alt="Фотография члена команды питомника мейн-кунов">
+                            </picture>
+                        </div>
 
                         <div class="team__person-info">
                             <div class="team__inter-wrapper">
@@ -290,11 +294,11 @@
                                 <source media="(max-width: 320px)" srcset="./pictures/feedback_author_mobile.jpg 242w" sizes="242px" type="image/jpg" />
                                 <source media="(max-width: 768px)" srcset="./pictures/feedback_author_table.jpg 302w" sizes="302px" type="image/jpg" />
                                 <source media="(min-width: 769px)" srcset="./pictures/feedback_author.jpg 481w" sizes="481px" type="image/jpg" />
-                                <img class="feedback__commentator-photo" src="#" alt="Фотография комментатора">
+                                <img class="feedback__commentator-photo" src="#" loading="lazy" alt="Фотография комментатора">
                             </picture>
 
                             <h3 class="feedback__commentator-headline">Серёжа Попов</h3>
-                            <p class="feedback__commentator-opinion">Я выражаю огромную благодарность вашему питомнику. Мой Феликс невероятно умен и воспитан. Огромным плюсом питомника является возможность консультироваться <span>в любое время</span></p>
+                            <p class="feedback__commentator-opinion">Я выражаю огромную благодарность вашему питомнику. Мой Феликс невероятно умен и воспитан. Огромным плюсом питомника является возможность консультироваться в любое время</p>
                             <div class="feedback__additional-info">
                                 <span class="feedback__date-feedback">24 мая 2018</span>
                                 <ol class="social">
@@ -315,7 +319,7 @@
     </main>
     <footer class="footer">
         <div class="align-container">
-            <a class="footer__logo">
+            <a class="footer__logo" href="./index.html" aria-label="Логотип-ссылка, ведущая на первую страницу сайта">
                 <img class="logo" src="./pictures/logo.svg" width="57" height="30" alt="Логотип питомника Мейн-Кунов">
             </a>
 
