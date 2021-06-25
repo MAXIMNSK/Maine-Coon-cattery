@@ -1,8 +1,3 @@
-/*
-    технический долг:
-    собрать все svg в один спрайт и подключить в начале body
-*/
-
 /* шрифты для проекта */
 @font-face {
     font-family: "Roboto";
@@ -32,7 +27,11 @@ body {
     font-size: 16px;
     font-family: "Roboto", "Arial", sans-serif;
 
-    /* background-color: #1F1C1D;                                      will be del */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background-color: #1F1C1D;
 }
 
 a {
@@ -65,8 +64,8 @@ img {
     width: 15px;
     height: 15px;
 
+    background-image: url("../pictures/social_all.svg");
     background-repeat: no-repeat;
-    background-position: 50%;
 
     display: block;
 }
@@ -83,18 +82,18 @@ img {
 }
 
 .social__element--vk {
-    background-image: url("../pictures/social_vk.svg");
-    background-size: 13px 8px;
+    background-size: 65px;
+    background-position: -51px -52px;
 }
 
 .social__element--tw {
-    background-image: url("../pictures/social_twitter.svg");
-    background-size: 15px 10px;
+    background-size: 70px;
+    background-position: 1px -57px;
 }
 
 .social__element--fb {
-    background-image: url("../pictures/social_facebook.svg");
-    background-size: 5px 11px;
+    background-size: 65px;
+    background-position: -25px -50px;
 }
 
 /* сокрытие элемента но оставляем его видимость для скринридеров */
@@ -109,6 +108,7 @@ img {
     position: absolute;
 }
 
+/* media: desktop */
 /* контейнер-выравниватель */
 .align-container {
     width: 1366px;
@@ -117,11 +117,8 @@ img {
     flex-direction: column;
 }
 
-/* media desktop */
 /* хедер сайта */
 .header {
-    margin: 0 auto;
-
     background-color: #181617;
 
     display: flex;
@@ -139,10 +136,29 @@ img {
     z-index: 1;
 }
 
-.header__context-container {
-    min-height: 498px;
+.header__logo:hover,
+.header__logo:focus {
+    transform: scale(-1, 1);
 
-    padding: 55px 0 0 0;
+    animation: headerLogoShaking 0.1s;
+}
+
+@keyframes headerLogoShaking {
+    0% {
+        transform: rotate(-15deg);
+    }
+
+    50% {
+        transform: rotate(0deg)
+    }
+
+    100% {
+        transform: rotate(15deg);
+    }
+}
+
+.header__context-container {
+    min-height: 553px;
 
     display: flex;
     flex-direction: row;
@@ -152,6 +168,8 @@ img {
 }
 
 .header__context-wrapper {
+    margin: 55px 0 0 0;
+
     display: flex;
     flex-direction: row-reverse;
     justify-content: space-between;
@@ -162,7 +180,7 @@ img {
 .header__context {
     width: 500px;
 
-    padding: 2px 0 0 32px;
+    padding: 1px 0 0 32px;
 }
 
 .header__context-wrapper .social {
@@ -172,6 +190,36 @@ img {
     justify-content: flex-end;
 }
 
+.header__context-wrapper .social__element--vk:hover {
+    background-size: 65px;
+    background-position: -51px 0;
+}
+
+.header__context-wrapper .social__element--vk:active {
+    background-size: 65px;
+    background-position: -51px -26px;
+}
+
+.header__context-wrapper .social__element--tw:hover {
+    background-size: 70px;
+    background-position: 1px -1px;
+}
+
+.header__context-wrapper .social__element--tw:active {
+    background-size: 70px;
+    background-position: 1px -29px;
+}
+
+.header__context-wrapper .social__element--fb:hover {
+    background-size: 65px;
+    background-position: -25px 2px;
+}
+
+.header__context-wrapper .social__element--fb:active {
+    background-size: 65px;
+    background-position: -25px -24px;
+}
+
 .header__context-city {
     color: #A07B50;
 
@@ -179,32 +227,55 @@ img {
 }
 
 .header__context-headline {
-    width: 350px;
-
     font-size: 52px;
     font-family: "Yeseva One", "Times New Roman", serif;
     font-weight: 400;
 
     margin: 22px 0 0 0;
+    padding: 0 100px 0 0;
+    box-sizing: border-box;
 }
 
 .header__context-interpretation {
-    width: 300px;
-
     color: #A07B50;
     line-height: 24px;
 
-    margin: 17px 0 65px 0;
+    margin: 17px 0 0 0;
+    padding: 0 200px 0 0;
+    box-sizing: border-box;
+}
+
+.header__context-link-wrapper {
+    margin: 49px 0 0 0;
 }
 
 .header__context-link {
+    width: 200px;
+
     color: inherit;
     font-size: 14px;
     font-weight: 700;
+    text-align: center;
 
-    padding: 18px 43px 15px 35px;
+    padding: 17px 0;
+
+    display: block;
 
     border: 0.5px solid #A07B50;
+}
+
+.header__context-link:hover {
+    color: #A07B50;
+
+    box-shadow: 0 0 5px 1px #55412a;
+}
+
+.header__context-link:active {
+    color: #55412a;
+
+    border-color: #55412a;
+
+    box-shadow: 0 0 10px 1px #55412a;
 }
 
 .header__context-image-wrapper {
@@ -215,7 +286,7 @@ img {
 
 /* тело сайта */
 .main {
-    margin: 0 auto;
+    padding: 195px 0 0 0;
 
     background-color: #1F1C1D;
 
@@ -224,9 +295,9 @@ img {
     align-items: center;
 }
 
-/* Питомцы */
+/* питомцы */
 .gallery {
-    padding: 225px 0 25px 0;
+    padding: 0 0 25px 0;
 
     display: flex;
     flex-direction: column;
@@ -234,26 +305,29 @@ img {
 }
 
 .gallery__headline {
+    width: 100%;
+
     font-family: "Yeseva One", "Times New Roman", serif;
     font-size: 36px;
     font-weight: 400;
-
-    margin: 0;
+    text-align: center;
 }
 
 .gallery__interpretation {
-    width: 523px;
+    width: 100%;
 
     color: #A07B50;
     font-weight: 300;
     line-height: 26px;
     text-align: center;
 
-    margin: 19px 0 0 0;
+    margin: -11px 0 0 0;
+    padding: 0 420px;
+    box-sizing: border-box;
 }
 
 .gallery__slider {
-    padding: 43px 0 0 1px;
+    padding: 43px 0 0 0;
 
     display: flex;
     flex-direction: column;
@@ -261,7 +335,7 @@ img {
 }
 
 .gallery__form {
-    margin: 0 0 0 -12px;
+    width: 100%;
 
     display: flex;
     flex-direction: row;
@@ -272,16 +346,26 @@ img {
     font-size: 18px;
     font-weight: 500;
 
-    margin: 0 12px;
-    padding: 0 10px;
+    margin: 0 10px;
+    padding: 1px 15px;
+
+    cursor: pointer;
 }
 
-.gallery__form-element--active {
+.gallery__form-element:hover {
     color: rgba(255, 255, 255, 1);
 }
 
+.gallery__form-element:active {
+    transform: scale(0.95);
+}
+
+.gallery__form-element--active {
+    color: rgba(255, 255, 255, 0.75);
+}
+
 .gallery__form-element--deactive {
-    color: rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.15);
 }
 
 .gallery__photos-block {
@@ -297,6 +381,8 @@ img {
     min-height: 570px;
 
     position: relative;
+
+    overflow: hidden;
 }
 
 .gallery__photo-wrapper {
@@ -305,23 +391,20 @@ img {
 
 .gallery__photo-wrapper--top {
     position: absolute;
-    top: 46px;
-    left: 29px;
+    top: 44px;
+    left: 30px;
 }
 
 .gallery__photo-wrapper--bottom {
     position: absolute;
-    top: 290px;
-    left: 13px;
+    top: 288px;
+    left: 14px;
 }
 
 .gallery__photo-wrapper--right {
     position: absolute;
-    right: 9px;
-}
-
-.gallery__photo-wrapper--right .gallery__photo-element {
-    margin-top: -5px;
+    top: -7px;
+    right: 8px;
 }
 
 .gallery__btn-previous,
@@ -329,20 +412,48 @@ img {
     display: none;
 }
 
+.gallery__watch-more-wrapper {
+    width: 100%;
+
+    margin: 16px 0 0 0;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
 .gallery__watch-more-link {
+    width: 200px;
+
     color: inherit;
     font-size: 14px;
     font-weight: 700;
+    text-align: center;
 
-    margin-top: 16px;
-    padding: 18px 40px 17px 40px;
+    padding: 17px 0;
+
+    display: block;
 
     border: 0.5px solid #A07B50;
 }
 
-/* Особенности породы */
+.gallery__watch-more-link:hover {
+    color: #A07B50;
+
+    box-shadow: 0 0 5px 1px #55412a;
+}
+
+.gallery__watch-more-link:active {
+    color: #55412a;
+
+    border-color: #55412a;
+
+    box-shadow: 0 0 10px 1px #55412a;
+}
+
+/* особенности породы */
 .features {
-    padding: 28px 0 45px 0;
+    padding: 27px 0 62px 0;
 
     display: flex;
     flex-direction: column;
@@ -361,26 +472,26 @@ img {
 }
 
 .features__interpretation {
-    width: 750px;
+    width: 100%;
 
     color: #A07B50;
     font-weight: 300;
     text-align: center;
     line-height: 26px;
 
-    margin-top: -10px;
+    margin: -10px 0 0 0;
+    padding: 0 300px;
+    box-sizing: border-box;
 }
 
 .features__background-wrapper {
     width: 673px;
     min-height: 750px;
 
-    background-image:
-        url("../pictures/features_cat.png"),
-        url("../pictures/features_infographics.svg");
-    background-size: auto, auto;
-    background-position: 68px -77px, 38px 57px;
-    background-repeat: no-repeat, no-repeat;
+    background-image: url("../pictures/features_cat-picture.png");
+    background-size: auto;
+    background-position: 38px -61px;
+    background-repeat: no-repeat;
 
     position: relative;
 }
@@ -390,16 +501,16 @@ img {
 
     margin: 0;
     padding: 0;
-
-    position: relative;
 }
 
 .features__element {
-    width: 240px;
+    width: 300px;
 
     font-size: 16px;
     font-weight: 300;
     line-height: 23px;
+
+    box-sizing: border-box;
 
     position: absolute;
 }
@@ -412,40 +523,44 @@ img {
     font-size: 14px;
     line-height: 21px;
 
-    top: 192px;
-    left: -185px;
+    padding: 0 0 0 50px;
+
+    top: 208px;
+    left: -241px;
 }
 
 .features__element:nth-child(2) {
-    top: 301px;
-    right: -257px;
+    padding: 0 50px 0 0;
+
+    top: 318px;
+    right: -317px;
 }
 
 .features__element:nth-child(3) {
-    width: 210px;
+    padding: 0 0 0 70px;
 
-    top: 478px;
-    left: -172px;
+    top: 494px;
+    left: -261px;
 }
 
 .features__element:nth-child(4) {
-    width: 160px;
+    padding: 0 120px 0 0;
 
-    top: 521px;
-    right: -140px;
+    top: 537px;
+    right: -280px;
 }
 
-/* Почему именно мы */
+/* почему именно мы */
 .why-we {
     width: 100%;
 
-    padding: 54px 0 100px 0;
+    padding: 55px 0 99px 0;
 
     background-color: #151313;
 
     display: flex;
-    flex-direction: row;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 .why-we .align-container {
@@ -453,23 +568,29 @@ img {
 }
 
 .why-we__headline {
+    width: 100%;
+
     font-family: "Yeseva One", "Times New Roman", serif;
     font-size: 36px;
     font-weight: 400;
+    text-align: center;
 }
 
 .why-we__interpretation {
+    width: 100%;
+
     color: #A07B50;
     font-weight: 400;
+    text-align: center;
 
-    margin: -5px 0 20px 0;
+    margin: -6px 0 0 0;
 }
 
 .why-we__bonuses-list {
-    margin: 0 0 0 -13px;
-    padding: 31px 0 0 0;
-
     list-style: none;
+
+    margin: 51px 0 0 -13px;
+    padding: 0;
 
     display: flex;
     flex-direction: row;
@@ -477,10 +598,11 @@ img {
 }
 
 .why-we__bonus-element {
-    width: 320px;
-    height: 267px;
+    width: 360px;
+    min-height: 301px;
 
     padding: 17px 20px;
+    box-sizing: border-box;
 
     background-color: #1F1C1D;
 }
@@ -496,7 +618,7 @@ img {
     border: 1px solid #1F1C1D;
 
     background-color: #1F1C1D;
-
+    background-image: url("../pictures/why_we-elements.svg");
     background-repeat: no-repeat;
 
     display: flex;
@@ -504,26 +626,38 @@ img {
     align-items: flex-end;
 }
 
-.why-we__bonus-description-wrapper--active {
+.why-we__bonus-element:hover .why-we__bonus-description-wrapper {
     background-color: #A07B50;
 }
 
 .why-we__bonus-element:nth-child(1) .why-we__bonus-description-wrapper {
-    background-image: url("../pictures/why-we_veterinarian.svg");
-    background-position: 111px 46px;
-    background-size: 98px 107px;
+    background-position: 24px -42px;
+    background-size: 1090px;
+}
+
+.why-we__bonus-element:nth-child(1):hover .why-we__bonus-description-wrapper {
+    background-position: 25px -466px;
+    background-size: 1090px;
 }
 
 .why-we__bonus-element:nth-child(2) .why-we__bonus-description-wrapper {
-    background-image: url("../pictures/why-we_any-time-support.svg");
-    background-position: 105px 49px;
-    background-size: 108px 95px;
+    background-position: -807px -37px;
+    background-size: 1090px;
+}
+
+.why-we__bonus-element:nth-child(2):hover .why-we__bonus-description-wrapper {
+    background-position: -810px -463px;
+    background-size: 1090px;
 }
 
 .why-we__bonus-element:nth-child(3) .why-we__bonus-description-wrapper {
-    background-image: url("../pictures/why-we_individual-approach.svg");
-    background-position: 123px 46px;
-    background-size: 71px 109px;
+    background-position: -390px -40px;
+    background-size: 1090px;
+}
+
+.why-we__bonus-element:nth-child(3):hover .why-we__bonus-description-wrapper {
+    background-position: -390px -466px;
+    background-size: 1090px;
 }
 
 .why-we__bonus-description {
@@ -532,16 +666,17 @@ img {
     line-height: 26px;
 
     padding: 13px 35px;
+    box-sizing: border-box;
 }
 
-    /* Об уходе за Мейн-Куном */
+/* об уходе за Мейн-Куном */
 .care {
     min-height: 520px;
 
-    padding: 55px 0 70px 0;
+    padding: 55px 0 55px 0;
 
     background-image: url("../pictures/care_background.jpg");
-    background-position: -1px -64px;
+    background-position: 0 -63px;
     background-repeat: no-repeat;
     background-size: auto;
 
@@ -551,26 +686,28 @@ img {
 }
 
 .care__headline {
+    width: 100%;
+
     font-family: "Yeseva One", "Times New Roman", serif;
     font-size: 36px;
     font-weight: 400;
+    text-align: center;
 }
 
 .care__content-wrapper {
     width: 1157px;
-    height: 375px;
 
     margin: 18px 0 0 0;
 
     display: flex;
-    flex-direction: column;
     justify-content: space-between;
-    align-content: space-between;
     flex-wrap: wrap;
 }
 
 .care__element {
     width: 556px;
+
+    margin: 0 0 42px 0;
 
     border: 0.5px solid #A07B50;
 
@@ -584,20 +721,14 @@ img {
     background-color: rgba(0, 0, 0, 0.3);
 }
 
-/* .care__element-content-wrapper--shadow-background {
-    background-color: rgba(0, 0, 0, 0.3);
-} */
-
 .care__element-headline {
     color: #A07B50;
     font-size: 22px;
     font-weight: 700;
 
-    margin: 37px 0 0 57px;
-}
-                                                                                    /* WARNING */
-.care__element:nth-child(2n) .care__element-headline {
-    margin-top: 34px;
+    margin: 36px 0 0 0;
+    padding: 0 0 0 57px;
+    box-sizing: border-box;
 }
 
 .care__element-context {
@@ -605,8 +736,9 @@ img {
     font-weight: 300;
     line-height: 23px;
 
-    margin: 12px 20px 0 57px;
-    padding: 0 20px 0 0;
+    margin: 10px 20px 0 0;
+    padding: 0 20px 0 57px;
+    box-sizing: border-box;
 }
 
 .care__element-btn {
@@ -616,22 +748,35 @@ img {
     font-size: 0;
 
     background-color: #A07B50;
-    background-image: url("../pictures/arrow.svg");
-    background-position: 60% 50%;
+    background-image: url("../pictures/arrows.svg");
+    background-position: -8px 34px;
+    background-size: 600px auto;
     background-repeat: no-repeat;
 
     border: none;
+
+    cursor: pointer;
 }
 
-    /* Наша команда */
-.team {
-    width: 100%;
+.care__element-btn:hover {
+    background-color: #55412a;
+}
 
-    padding: 54px 0 2px 0;
+.care__element-btn:active {
+    background-color: #55412a;
+    background-position: -5px 38px;
+    background-size: 550px auto;
+
+    box-shadow: -5px 5px 10px 1px rgba(0, 0, 0, 0.5) inset;
+}
+
+/* наша команда */
+.team {
+    padding: 54px 0 72px 0;
 
     display: flex;
-    flex-direction: row;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 
     background-color: #151313;
 }
@@ -641,25 +786,30 @@ img {
 }
 
 .team__headline {
+    width: 100%;
+
     font-family: "Yeseva One", "Times New Roman", serif;
     font-size: 36px;
     font-weight: 400;
+    text-align: center;
 }
 
 .team__interpretation {
-    width: 510px;
+    width: 100%;
 
-    text-align: center;
     color: #A07B50;
     line-height: 25px;
+    text-align: center;
 
     margin-top: -10px;
+    padding: 0 430px;
+    box-sizing: border-box;
 }
 
 .team__slider {
     width: 100%;
 
-    margin: 10px 0 70px 0;
+    margin: 10px 0 0 0;
 
     display: flex;
     flex-direction: row;
@@ -672,18 +822,33 @@ img {
 
     font-size: 0;
 
-    background-image: url("../pictures/team_arrow.svg");
-    background-size: 14px 33px;
-    background-repeat: no-repeat;
-    background-position: 68px 183px;
+    border: none;
 
     background-color: transparent;
-    
-    border: none;
+
+    background-image: url("../pictures/arrows.svg");
+    background-size: 1000px auto;
+    background-repeat: no-repeat;
+
+    cursor: pointer;
 }
 
 .team__btn-previous {
-    transform: rotate(180deg);
+    background-position: -158px -113px;
+}
+
+.team__btn-following {
+    background-position: -162px 122px;
+}
+
+.team__btn-previous:hover,
+.team__btn-following:hover {
+    transform: scale(1.2);
+}
+
+.team__btn-previous:active,
+.team__btn-following:active {
+    transform: scale(0.8);
 }
 
 .team__person {
@@ -694,27 +859,27 @@ img {
     justify-content: space-between;
 }
 
-.team__person-photo {
+.team__person-photo-wrapper {
     position: relative;
     top: -1px;
     left: 53px;
 }
 
 .team__person-info {
-    width: 600px;
+    width: 659px;
 
-    padding: 23px 32px 24px 25px;
+    padding: 21px 32px 22px 25px;
+    box-sizing: border-box;
 
-    /* background-color: transparent; */
-    background-color: #1F1C1D;
+    background-color: transparent;
 
     border: 0.5px solid rgba(160, 123, 80, 0.43);
 }
 
 .team__inter-wrapper {
-    padding: 67px 80px 65px 98px;
+    padding: 69px 80px 67px 98px;
 
-    /* background-color: #1F1C1D; */
+    background-color: #1F1C1D;
 
     display: flex;
     flex-direction: column;
@@ -742,30 +907,57 @@ img {
 }
 
 .team__inter-wrapper .social {
-    margin: 27px 0 0 -7px;
+    margin: 27px 0 0 -6px;
 }
 
 .team__inter-wrapper .social__element--fb {
     width: 11px;
 
-    background-size: 10px 17px;
+    background-size: 70px;
+    background-position: -30px -56px;
+}
+
+.team__inter-wrapper .social__element--fb:hover {
+    background-position: -30px 0;
+}
+
+.team__inter-wrapper .social__element--fb:active {
+    background-position: -30px -28px;
 }
 
 .team__inter-wrapper .social__element--tw {
     width: 17px;
 
-    background-size: 21px 15px;
+    background-size: 90px;
+    background-position: -2px -75px;
+}
+
+.team__inter-wrapper .social__element--tw:hover {
+    background-position: -2px -3px;
+}
+
+.team__inter-wrapper .social__element--tw:active {
+    background-position: -2px -39px;
 }
 
 .team__inter-wrapper .social__element--vk {
     width: 20px;
 
-    background-size: 21px 12px;
+    background-size: 90px;
+    background-position: -72px -75px;
 }
 
-    /* Вопрос - ответ */
+.team__inter-wrapper .social__element--vk:hover {
+    background-position: -72px -3px;
+}
+
+.team__inter-wrapper .social__element--vk:active {
+    background-position: -72px -39px;
+}
+
+/* вопрос - ответ */
 .faq {
-    padding: 44px 0 50px 0;
+    padding: 44px 0 25px 0;
 
     display: flex;
     flex-direction: column;
@@ -773,15 +965,21 @@ img {
 }
 
 .faq__headline {
+    width: 100%;
+
     font-family: "Yeseva One", "Times New Roman", serif;
     font-size: 36px;
     font-weight: 400;
+    text-align: center;
 }
 
 .faq__interpretation {
-    color: #A07B50;
+    width: 100%;
 
-    margin-top: -5px;
+    color: #A07B50;
+    text-align: center;
+
+    margin-top: -6px;
 }
 
 .faq__list {
@@ -789,18 +987,16 @@ img {
 
     list-style: none;
 
-    margin: 41px 0 0 0;
+    margin: 42px 0 0 0;
     padding: 0;
 }
 
 .faq__element {
+    margin: 0 0 36px 0;
+
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-}
-
-.faq__element:not(:last-child) {
-    margin: 0 0 36px 0;
 }
 
 .faq__element-index {
@@ -808,7 +1004,7 @@ img {
     font-size: 70px;
     font-weight: 700;
 
-    padding: 16px 19px;
+    padding: 16px 0 0 20px;
 
     flex-grow: 1;
 }
@@ -835,11 +1031,12 @@ img {
 
     margin: 0;
     padding: 3px 0 0 42px;
+    box-sizing: border-box;
 }
 
 .faq__switcher {
-    width: 120px;
-    height: 110px;
+    width: 115px;
+    height: 108px;
 
     font-size: 0;
 
@@ -848,38 +1045,61 @@ img {
 
     background-color: transparent;
 
-    background-position: 50%;
+    background-size: 120px;
     background-repeat: no-repeat;
+
+    cursor: pointer;
 }
 
 .faq__switcher--opened {
     background-color: #A07B50;
 
-    background-image: url("../pictures/faq_hide.svg");
-    background-size: 20px 2px;
+    background-image: url("../pictures/faq-elements.svg");
+    background-position: -32px -31px;
+}
+
+.faq__switcher--opened:hover {
+    background-color: #55412a;
+}
+
+.faq__switcher--opened:active {
+    background-color: #55412a;
+    box-shadow: 0 0 10px 1px #000000 inset;
 }
 
 .faq__switcher--closed {
     background-color: transparent;
+    background-image: url("../pictures/faq-elements.svg");
+    background-position: 37px 44px;
+}
 
-    background-image: url("../pictures/faq_show.svg");
-    background-size: 18px 49px;
+.faq__switcher--closed:hover {
+    background-color: #A07B50;
+    background-position: 37px -31px;
+}
+
+.faq__switcher--closed:active {
+    background-color: #55412a;
+    background-position: 37px -31px;
+
+    box-shadow: 0 0 10px 1px #000000 inset;
 }
 
 .faq__answer {
     font-weight: 300;
     line-height: 25px;
 
-    padding: 19px 190px 16px 44px;
+    padding: 20px 190px 18px 44px;
+    box-sizing: border-box;
 }
 
 .faq__answer p {
     margin-bottom: 22px;
 }
 
-    /* Отзывы */
+/* отзывы */
 .feedback {
-    padding: 7px 0 111px 0;
+    padding: 1px 0 112px 0;
 
     display: flex;
     flex-direction: column;
@@ -887,14 +1107,23 @@ img {
 }
 
 .feedback__headline {
+    width: 100%;
+
     font-family: "Yeseva One", "Times New Roman", serif;
     font-size: 36px;
+    text-align: center;
 }
 
 .feedback__slider {
+    width: 1074px;
+
+    padding: 30px 0 0 0;
+
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-end;
+
+    position: relative;
 }
 
 .feedback__btn-previous,
@@ -903,7 +1132,13 @@ img {
 }
 
 .feedback__commentator {
-    margin-top: 30px;
+    width: 640px;
+
+    margin: 0;
+    padding: 85px 85px 95px 145px;
+    box-sizing: border-box;
+    
+    background-color: #151313;
 
     display: flex;
     flex-direction: row;
@@ -911,22 +1146,15 @@ img {
 }
 
 .feedback__commentator-photo {
-    position: relative;
-    top: 46px;
-    left: 76px;
+    position: absolute;
+    top: 76px;
+    left: 53px;
 
     z-index: 1;
 }
 
 .feedback__commentator-info {
-    width: 495px;
-    
-    background-color: #151313;
-
-    padding: 85px 0 99px 145px;
-
-    position: relative;
-    right: 24px;
+    box-sizing: border-box;
 
     display: flex;
     flex-direction: column;
@@ -938,8 +1166,6 @@ img {
 }
 
 .feedback__commentator-opinion {
-    width: 410px;
-
     font-size: 14px;
     font-weight: 300;
     line-height: 23px;
@@ -948,7 +1174,7 @@ img {
 }
 
 .feedback__additional-info {
-    margin-top: 25px;
+    margin-top: 20px;
 
     display: flex;
     flex-direction: row;
@@ -959,28 +1185,46 @@ img {
     color: #A07B50;
     font-size: 12px;
 
-    margin-right: 38px;
+    margin-right: 33px;
 }
 
-.feedback__additional-info .social__element-wrapper {
+.feedback__additional-info .social__element {
+    width: 25px;
+    height: 25px;
+
     border: 0.5px solid rgba(160, 123, 80, 0.27);
+
+    display: block;
+}
+
+.feedback__additional-info .social__element:active {
+    transform: scale(0.9);
 }
 
 .feedback__additional-info .social__element-wrapper:not(:last-child) {
-    margin-right: 18px;
+    margin-right: 8px;
 }
 
 .feedback__additional-info .social__element--tw {
-    background-image: url("../pictures/social_twitter-color.svg");
+    background-size: 70px;
+    background-position: 5px 4px;
+}
+
+.feedback__additional-info .social__element--tw:hover {
+    background-position: 5px -24px;
 }
 
 .feedback__additional-info .social__element--vk {
-    background-image: url("../pictures/social_vk-color.svg");
+    background-size: 70px;
+    background-position: -50px 5px;
+}
+
+.feedback__additional-info .social__element--vk:hover {
+    background-position: -50px -23px;
 }
 
 /* подвал сайта */
 .footer {
-    margin: 0 auto;
     padding: 69px 0 54px 0;
 
     background-color: #151313;
@@ -1007,33 +1251,71 @@ img {
     left: 109px;
 }
 
+.footer__logo:hover,
+.footer__logo:focus {
+    transform: scale(-1, 1);
+
+    animation: headerLogoShaking 0.1s;
+}
+
+@keyframes headerLogoShaking {
+    0% {
+        transform: rotate(-15deg);
+    }
+
+    50% {
+        transform: rotate(0deg)
+    }
+
+    100% {
+        transform: rotate(15deg);
+    }
+}
+
 .footer .social {
-    position: relative;
-    top: 2px;
-    left: -40px;
+    top: 0;
+    left: -42px;
 }
 
 .footer .social__element {
-    width: 17px;
-    height: 17px;
+    width: 19px;
+    height: 19px;
 
     margin: 0;
 }
 
+.footer .social__element:active {
+    transform: scale(0.8);
+}
+
 .footer .social__element--vk {
-    background-image: url("../pictures/social_vk-color.svg");
-    background-size: 20px 13px;
+    background-size: 92px;
+    background-position: -74px -2px;
+}
+
+.footer .social__element--vk:hover {
+    background-size: 92px;
+    background-position: -74px -39px;
 }
 
 .footer .social__element--tw {
-    background-image: url("../pictures/social_twitter-color.svg");
-    background-size: 22px 14px;
+    background-size: 96px;
+    background-position: -1px -2px;
+}
+
+.footer .social__element--tw:hover {
+    background-size: 96px;
+    background-position: -1px -41px;
 }
 
 .footer .social__element--fb {
-    background-image: url("../pictures/social_facebook-color.svg");
-    background-size: 8px 17px;
-    background-position: 75% 50%;
+    background-size: 80px;
+    background-position: -26px 1px;
+}
+
+.footer .social__element--fb:hover {
+    background-size: 80px;
+    background-position: -26px -31px;
 }
 
 .footer__contact-details {
@@ -1058,13 +1340,17 @@ img {
     margin: 2px 0 0 69px;
 }
 
-@media (max-width: 768px) {
-    body {
-        /* background-color: #1F1C1D;                                      will be del */
-    }
+.footer__tel:hover {
+    color: #A07B50;
+}
 
+.footer__tel:active {
+    color: #55412a;
+}
+
+@media (max-width: 768px) {
     .align-container {
-        width: 100%;
+        width: 768px;
     }
 
     /* хедер сайта */
@@ -1077,19 +1363,17 @@ img {
     }
     
     .header__context-wrapper {
-        padding: 0;
-
         flex-direction: column;
     }
     
     .header__context {
-        width: auto;
+        width: 375px;
 
-        padding: 2px 32px 0 42px;
+        padding: 2px 0 0 42px;
     }
     
     .header__context-wrapper .social {
-        padding: 40px 0 40px 25px;
+        padding: 52px 0 40px 25px;
 
         flex-direction: row;
         justify-content: flex-start;
@@ -1099,240 +1383,277 @@ img {
         display: none;
     }
 
+    .header__context-headline {
+        padding: 0;
+    }
+
     .header__context-interpretation {
         margin: 19px 0 0 0;
+        padding: 0 40px 0 0;
     }
-    
+
+    .header__context-link-wrapper {
+        margin: 49px 0 0 0;
+    }
+
     .header__context-link {
         margin: 50px 0 0 0;
+        padding: 18px 0 17px 0;
+    }
 
-        display: inline-block;
+    .header__context-image-wrapper {
+        bottom: -5px;
     }
 
     /* тело сайта */
-    /* Питомцы */
+    .main {
+        padding: 73px 0 0 0;
+    }
+    
+    /* питомцы */
     .gallery {
-        padding: 101px 0 50px 0;
+        padding: 0;
     }
 
     .gallery__interpretation {
-        margin: 22px 0 0 0;
+        margin: -10px 0 0 0;
+        padding: 0 100px;
     }
 
     .gallery__slider {
-        padding: 45px 0 2px 0;
+        padding: 44px 0 2px 0;
+    }
+
+    .gallery__form-element:active {
+        transform: scale(0.85);
     }
 
     .gallery__photos-block {
         width: 768px;
+
+        align-items: center;
     }
 
     .gallery__photo-wrapper--top {
         top: 189px;
-        left: 142px;
+        right: 35px;
+        left: auto;
     }
     
     .gallery__photo-wrapper--bottom {
-        top: 189px;
+        top: 188px;
         left: 8px;
     }
     
     .gallery__photo-wrapper--right {
-        width: 474px;
-        height: 495px;
-
-        overflow: hidden;
-
         top: 39px;
         right: 98px;
-    }
-
-    .gallery__photo-wrapper--right .gallery__photo-element {
-        margin: -52px 0 0 0;
     }
 
     .gallery__btn-previous,
     .gallery__btn-following {
         width: 70px;
+        height: 400px;
 
         font-size: 0;
 
         border: none;
 
         background-color: transparent;
-        background-image: url('../pictures/gallery_arrow.svg');
+        background-image: url("../pictures/arrows.svg");
         background-repeat: no-repeat;
-        background-size: 16px;
+        background-size: 1000px;
 
         display: block;
+
+        cursor: pointer;
+    }
+
+    .gallery__btn-previous:hover,
+    .gallery__btn-following:hover {
+        transform: scale(1.15);
+    }
+
+    .gallery__btn-previous:active,
+    .gallery__btn-following:active {
+        transform: scale(0.85);
     }
 
     .gallery__btn-previous {
-        transform: scale(-1, 1);
-
-        background-position: 18px 273px;
+        background-position: -200px -108px;
     }
 
     .gallery__btn-following {
-        background-position: 18px 273px;
+        background-position: -209px 127px;
     }
 
-        /* Особенности породы */
+    .gallery__watch-more-wrapper {
+        margin: 17px 0 0 0;
+    }
+    
+    .gallery__watch-more-link {
+        width: 198px;
+    }
+
+    /* особенности породы */
     .features {
-        padding: 13px 0 34px 0;
+        padding: 63px 0 0 0;
     }
 
     .features__headline {
-        width: 100%;
-
-        text-align: center;
-        
         padding: 0;
     }
 
     .features__interpretation {
-        width: 450px;
-
-        margin-top: -8px;
-    }
-
-    .features__interpretation-part--table-padding {
-        padding: 0 8px;
+        margin: -8px 0 0 0;
+        padding: 0 150px;
     }
 
     .features__background-wrapper {
         width: 100%;
-        min-height: 550px;
+        min-height: 600px;
 
-        background-size: 415px 610px, 416px 433px;
-        background-position: 197px -25px, 180px 60px;
+        background-image: url("../pictures/features_cat-picture-table.png");
+        background-size: auto;
+        background-position: 179px -10px;
+    }
+
+    .features__element {
+        width: 150px;
     }
 
     .features__element:nth-child(1) {
-        width: 150px;
-    
-        top: 155px;
-        left: 43px;
+        padding: 0;
+
+        top: 171px;
+        left: 42px;
     }
     
     .features__element:nth-child(2) {
-        width: 150px;
+        padding: 0;
 
-        top: 230px;
+        top: 245px;
         right: 10px;
     }
     
     .features__element:nth-child(3) {
-        width: 160px;
-    
-        top: 346px;
-        left: 22px;
+        padding: 0;
+
+        top: 363px;
+        left: 31px;
     }
     
     .features__element:nth-child(4) {
-        width: 120px;
-    
-        top: 375px;
-        right: 63px;
+        padding: 0 30px 0 0;
+
+        top: 392px;
+        right: 35px;
     }
 
-        /* Почему именно мы */
+    /* почему именно мы */
     .why-we {
-        padding: 56px 0 58px 0;
+        padding: 57px 0 102px 0;
+    }
+
+    .why-we__interpretation {
+        margin: -5px 0 0 0;
     }
 
     .why-we__bonuses-list {
-        width: 100%;
-
-        margin: 0;
-        padding: 43px 0;
+        padding: 11px 0 0 0;
 
         flex-direction: column;
         align-items: center;
     }
 
     .why-we__bonus-element {
-        width: 318px;
-        height: 272px;
+        min-height: 306px;
+    }
+
+    .why-we__bonus-element:nth-child(1n):not(:last-child) {
+        margin: 0 0 42px 0;
+    }
+
+    .why-we__bonus-description-wrapper {
+        min-height: 272px;
     }
 
     .why-we__bonus-element:nth-child(1) .why-we__bonus-description-wrapper {
-        background-position: 105px 48px;
-        background-size: 100px 109px;
+        background-position: 23px -40px;
+        background-size: 1100px;
     }
 
-    .why-we__bonus-element:nth-child(2) {
-        margin: 0;
+    .why-we__bonus-element:nth-child(1):hover .why-we__bonus-description-wrapper {
+        background-position: 24px -468px;
+        background-size: 1100px;
     }
 
     .why-we__bonus-element:nth-child(2) .why-we__bonus-description-wrapper {
-        background-position: 101px 48px;
-        background-size: 110px 98px;
+        background-position: -814px -36px;
+        background-size: 1100px;
+    }
+
+    .why-we__bonus-element:nth-child(2):hover .why-we__bonus-description-wrapper {
+        background-position: -818px -466px;
+        background-size: 1100px;
     }
 
     .why-we__bonus-element:nth-child(3) .why-we__bonus-description-wrapper {
-        background-position: 120px 48px;
-        background-size: 70px auto;
+        background-position: -394px -36px;
+        background-size: 1100px;
     }
 
-    .why-we__bonus-element:not(:last-child) {
-        margin-bottom: 46px;
+    .why-we__bonus-element:nth-child(3):hover .why-we__bonus-description-wrapper {
+        background-position: -394px -466px;
+        background-size: 1100px;
     }
 
-    .why-we__bonus-description {
-        padding: 0px 35px 14px 35px;
-    }
-
-        /* Об уходе за Мейн-Куном */
+    /* об уходе за Мейн-Куном */
     .care {
-        padding: 61px 0 75px 0;
+        padding: 62px 0 75px 0;
 
         background-position: -682px -100px;
         background-size: auto 1136px;
     }
 
     .care__content-wrapper {
-        width: 700px;
-        height: 100%;
+        width: 100%;
 
-        margin: 8px 0 0 15px;
-        
+        margin: 7px 0 0 0;
+
+        flex-direction: column;
         align-content: center;
     }
 
     .care__element {
-        margin-bottom: 24px;
+        margin: 0 0 22px 18px;
     }
 
     .care__element-content-wrapper {
-        min-height: 166px;
+        min-height: 168px;
     }
 
     .care__element-headline {
-        margin: 37px 0 0 49px;
+        margin: 38px 0 0 0;
+        padding: 0 0 0 47px;
     }
 
     .care__element-context {
-        margin: 12px 30px 0 49px;
+        margin: 10px 0 0 0;
+        padding: 0 47px;
     }
 
-    .care__element-btn {
-        min-width: 58px;
-    }
-
-    /* Наша команда */
+    /* наша команда */
     .team {
-        padding-top: 56px;
-        padding-bottom: 124px;
+        padding: 56px 0 193px 0;
     }
 
     .team__interpretation {
-        padding: 0;
+        margin: -8px 0 0 0;
+        padding: 0 130px;
     }
     
     .team__slider {
-        margin-top: 12px;
-
         position: relative;
     }
 
@@ -1341,60 +1662,74 @@ img {
         width: 30px;
         min-height: 50px;
 
-        background-position: 10px 10px;
-
         position: absolute;
     }
 
     .team__btn-previous {
-        top: 468px;
+        background-position: -220px -287px;
+
+        top: 482px;
         left: 382px;
     }
 
     .team__btn-following {
-        top: 465px;
+        background-position: -218px -52px;
+
+        top: 482px;
         left: 656px;
     }
 
     .team__person {
-        position: relative;
-
         justify-content: center;
+
+        position: relative;
     }
 
-    .team__person-photo {
+    .team__person-photo-wrapper {
         position: absolute;
-        top: 297px;
-        left: 430px;
+        top: 313px;
+        left: 431px;
     }
 
     .team__person-info {
-        width: 650px;
+        width: 649px;
 
-        margin-left: -26px;
-        padding: 23px 25px 22px 25px;
-        box-sizing: border-box;
+        margin: 16px 26px 0 0;
+        padding: 23px;
     }
 
     .team__inter-wrapper {
-        padding: 70px 80px 70px 105px;
+        padding-bottom: 68px;
     }
 
     .team__person-headline {
-        margin-top: 2px;
+        margin: 3px 0 0 0;
+        padding: 0 0 0 9px;
+        box-sizing: border-box;
+    }
+
+    .team__person-rank {
+        padding: 0 0 0 9px;
+        box-sizing: border-box;
+    }
+    
+    .team__person-opinion {
+        padding: 0 0 0 9px;
+        box-sizing: border-box;
     }
 
     .team__inter-wrapper .social {
-        margin-top: 28px;
+        margin: 30px 0 0 0;
+        padding: 0 0 0 2px;
     }
 
-    /* Вопрос-ответ */
+    /* вопрос-ответ */
     .faq {
-        padding: 108px 0 45px 0;
+        padding: 108px 0 0 0;
     }
     
     .faq__interpretation {
-        margin-top: -9px;
+        margin-top: -8px;
     }
     
     .faq__list {
@@ -1402,19 +1737,15 @@ img {
 
         margin-top: 39px;
     }
-    
-    .faq__element:not(:last-child) {
-        margin: 0 0 22px 0;
-    }
 
-    .faq__element:nth-child(3n) {
-        margin: 24px 0 28px 0;
+    .faq__element {
+        margin: 0 0 22px 0;
     }
     
     .faq__element-index {
         font-size: 50px;
 
-        padding: 10px 23px 0px 23px;
+        padding: 11px 23px 0 23px;
 
         flex-grow: 0;
     }
@@ -1430,29 +1761,47 @@ img {
     }
     
     .faq__switcher {
-        width: 92px;
-        height: 74px;
+        width: 81px;
+        height: 76px;
+
+        background-size: 100px;
+    }
+
+    .faq__switcher--opened {
+        background-position: -34px -35px;
     }
     
     .faq__switcher--closed {
-        background-position: 55% 55%;
+        background-position: 26px 29px;
+    }
+
+    .faq__switcher--closed:hover {
+        background-position: 26px -34px;
+    }
+
+    .faq__switcher--closed:active {
+        background-position: 26px -34px;
     }
     
     .faq__answer {
-        padding: 10px 135px 2px 30px;
+        padding: 9px 135px 2px 30px;
     }
 
-    /* Отзывы */
+    /* отзывы */
     .feedback {
-        padding-bottom: 87px;
+        padding: 33px 0 55px 0;
+    }
+
+    .feedback__headline {
+        font-weight: 400;
     }
     
     .feedback__slider {
         width: 100%;
 
-        justify-content: center;
+        padding: 31px 0 32px 0;
 
-        position: relative;
+        justify-content: center;
     }
     
     .feedback__btn-previous,
@@ -1462,47 +1811,69 @@ img {
 
         font-size: 0;
     
-        background-image: url("../pictures/feedback_arrow.svg");
-        background-size: auto;
+        background-image: url("../pictures/arrows.svg");
+        background-size: 1000px;
         background-repeat: no-repeat;
-        background-position: 50%;
     
         background-color: transparent;
         
         border: none;
 
-        display: inline;
+        display: block;
 
         position: absolute;
         top: 0;
         left: 0;
         z-index: 1;
+
+        cursor: pointer;
     }
 
     .feedback__btn-previous {
-        top: 137px;
+        background-position: -336px -52px;
+
+        top: 135px;
         left: 552px;
     }
 
-    .feedback__btn-following {
-        top: 137px;
-        left: 128px;
+    .feedback__btn-previous:hover {
+        transform: scale(1.2);
+    }
 
-        transform: rotate(180deg);
+    .feedback__btn-previous:active {
+        transform: scale(1.3);
+        left: 572px;
+    }
+
+    .feedback__btn-following {
+        background-position: -335px -285px;
+
+        top: 135px;
+        left: 128px;
+    }
+
+    .feedback__btn-following:hover {
+        transform: scale(1.2);
+    }
+
+    .feedback__btn-following:active {
+        transform: scale(1.3);
+        left: 108px;
     }
     
     .feedback__commentator {
         width: 578px;
 
-        margin: -9px 0 0 15px;
-        padding-top: 124px;
+        margin: 84px 0 0 15px;
+        padding: 124px 0 29px 0;
+
+        justify-content: center;
 
         position: relative;
     }
     
     .feedback__commentator-photo {
-        position: absolute;
-        top: 29px;
+        top: -95px;
         left: 138px;
     }
     
@@ -1510,35 +1881,31 @@ img {
         width: 100%;
 
         text-align: center;
-
-        padding: 124px 0 33px 0;
-
-        position: static;
     }
-    
-    .feedback__commentator-opinion {
-        width: 100%;
 
-        padding: 0 80px;
+    .feedback__commentator-opinion {
+        padding: 0 110px;
         box-sizing: border-box;
     }
     
     .feedback__additional-info {
-        width: 100%;
-
-        margin-top: 12px;
-        padding-top: 1px;
+        margin-top: 7px;
 
         justify-content: center;
     }
-    
+        
     .feedback__date-feedback {
-        margin-left: 23px;
+        margin: 0 28px 0 30px;;
+    }
+
+    .feedback__additional-info .social {
+        padding: 0 0 0 5px;
+        box-sizing: border-box;
     }
 
     /* подвал сайта */
     .footer {
-        padding: 36px 0 54px 0;
+        padding: 33px 0 54px 0;
     }
     
     .footer .align-container {
@@ -1553,35 +1920,27 @@ img {
     .footer .footer__contact-details {
         position: static;
     }
+
+    .footer .social {
+        position: relative;
+        top: 2px;
+        left: -3px;
+    }
     
     .footer__logo {
         display: none;
     }
-    
-    .footer .social {
-        position: relative;
-        top: 1px;
-        left: 1px;
-    }
-    
-    .footer .social__element--vk {
-        background-image: url("../pictures/social_vk-color.svg");
-    }
-    
-    .footer .social__element--tw {
-        background-image: url("../pictures/social_twitter-color.svg");
-    }
-    
-    .footer .social__element--fb {
-        background-image: url("../pictures/social_facebook-color.svg");
-    }
-    
+ 
     .footer__tel {
-        margin: 2px 9px 0 85px;
+        margin: 0 11px 0 85px;
     }
 }
 
 @media (max-width: 320px) {
+    .align-container {
+        width: 320px;
+    }
+
     /* хедер сайта */
     .header__wrapper-logo {
         padding: 12px 0;
@@ -1590,27 +1949,32 @@ img {
     .header__context-container {
         min-height: 530px;
 
-        padding: 0;
-
         flex-direction: column;
+    }
+
+    .header__context-wrapper {
+        margin: 7px 0 0 0;
     }
     
     .header__context {
-        padding: 17px 0 0 0;
+        width: 100%;
+
+        padding: 10px 0 0 0;
 
         display: flex;
         flex-direction: column;
         justify-content: center;
-        align-items: center;
+        align-items: flex-start;
     }
 
     .header__context-city {
+        width: 100%;
+
         font-size: 14px;
+        text-align: center;
     }
 
     .header__context-headline {
-        width: auto;
-
         font-size: 36px;
         text-align: center;
 
@@ -1622,45 +1986,53 @@ img {
     }
 
     .header__context-interpretation {
-        width: auto;
-
         font-size: 14px;
         line-height: 20px;
         text-align: center;
 
-        margin: 18px 0 0 0;
+        margin: 17px 0 0 0;
         padding: 0 18px;
-        box-sizing: border-box;
     }
-    
+
+    .header__context div {
+        width: 100%;
+
+        margin: 35px 0 0 0;
+    }
+
+    .header__context-link-wrapper {
+        margin: 49px 0 0 0;
+    }
+
     .header__context-link {
-        width: 141px;
+        width: 140px;
 
         font-size: 12px;
-        text-align: center;
 
-        margin: 34px 0 0 0;
-        padding: 12px 0px;
+        margin: 0 auto;
+        padding: 12px 0;
     }
 
     .header__context-image-wrapper {
-        display: block;
-
         position: relative;
-        top: 0;
-        left: 0;
+        bottom: 0;
     }
 
     .header__context-image {
         position: absolute;
-        top: -256px;
-        left: 45px;
+        top: auto;
+        right: 0;
+        bottom: 0;
     }
 
     /* тело сайта */
-    /* Питомцы */
+    .main {
+        padding: 32px 0 0 0;
+    }
+    
+    /* питомцы */
     .gallery {
-        padding: 54px 0 50px 0;
+        padding: 0 0 50px 0;
     }
 
     .gallery__headline {
@@ -1668,14 +2040,11 @@ img {
     }
 
     .gallery__interpretation {
-        width: auto;
-
         font-size: 14px;
         line-height: 20px;
 
-        margin: 23px 0 0 0;
+        margin: -1px 0 0 0;
         padding: 0 15px;
-        box-sizing: border-box;
     }
 
     .gallery__slider {
@@ -1689,7 +2058,7 @@ img {
     .gallery__form-element {
         font-size: 16px;
 
-        padding: 0 11px;
+        padding: 1px 11px;
     }
 
     .gallery__photos-block-wrapper {
@@ -1708,22 +2077,44 @@ img {
     }
     
     .gallery__photo-wrapper--right {
-        width: auto;
-        height: auto;
-
-        margin-top: 36px;
+        margin-top: 34px;
 
         position: static;
     }
 
-    .gallery__photo-wrapper--right .gallery__photo-element {
-        margin: 0;
-    }
-
     .gallery__btn-previous,
     .gallery__btn-following {
-        background-size: 10px;
-        background-position: 19px 150px;
+        height: 200px;
+
+        background-size: 600px;
+    }
+
+    .gallery__btn-previous {
+        background-position: -94px -72px;
+    }
+
+    .gallery__btn-previous:hover {
+        background-position: -94px -73px;
+    }
+
+    .gallery__btn-previous:active {
+        background-position: -94px -69px;
+    }
+
+    .gallery__btn-following {
+        background-position: -117px 69px;
+    }
+
+    .gallery__btn-following:hover {
+        background-position: -117px 67px;
+    }
+
+    .gallery__btn-following:active {
+        background-position: -117px 71px;
+    }
+
+    .gallery__watch-more-wrapper {
+        margin: 42px 0 0 0;
     }
 
     .gallery__watch-more-link {
@@ -1732,42 +2123,36 @@ img {
         font-size: 12px;
         text-align: center;
 
-        margin: 41px 0 0 0;
         padding: 12px 0;
     }
 
-        /* Особенности породы */
+    /* особенности породы */
     .features {
-        padding: 0 0 53px 0;
+        padding: 0 0 52px 0;
     }
 
     .features__headline {
         font-size: 28px;
 
-        margin: 0;
-        padding: 5px 50px;
+        margin: 5px 0 0 0;
+        padding: 0 50px;
         box-sizing: border-box;
     }
 
     .features__interpretation {
-        width: 100%;
-
         font-size: 14px;
         line-height: 20px;
 
-        margin: 19px 0 0 0;
+        margin: 22px 0 0 0;
         padding: 0 20px;
-        box-sizing: border-box;
     }
 
     .features__background-wrapper {
-        width: 100%;
-        min-height: 563px;
+        min-height: 565px;
 
-        background-image: url("../pictures/features_cat-picture.png");
-        background-position: 50% 23px;
+        background-image: url("../pictures/features_cat-picture-mobile.png");
+        background-position: 50% 24px;
         background-size: 280px 304px;
-        background-repeat: no-repeat;
 
         position: static;
 
@@ -1775,10 +2160,6 @@ img {
     }
 
     .features__list {
-        width: auto;
-
-        position: static;
-
         align-self: flex-end;
     }
 
@@ -1790,7 +2171,6 @@ img {
         text-align: left;
 
         padding: 0 25px 0 32px;
-        box-sizing: border-box;
 
         position: relative;
         top: 0;
@@ -1817,26 +2197,20 @@ img {
         left: 14px;
     }
 
-        /* Почему именно мы */
+    /* почему именно мы */
     .why-we {
-        padding: 32px 0 24px 0;
+        padding: 31px 0 60px 0;
     }
 
     .why-we__headline {
-        width: 100%;
-
         font-size: 28px;
-        text-align: center;
 
         padding: 0 50px;
         box-sizing: border-box;
     }
 
     .why-we__interpretation {
-        width: 100%;
-
         font-size: 14px;
-        text-align: center;
         line-height: 18px;
 
         margin: 2px 0 0 0;
@@ -1845,13 +2219,14 @@ img {
     }
 
     .why-we__bonuses-list {
-        padding: 36px 15px;
+        margin: 36px 0 0 0;
+        padding: 0 15px;
         box-sizing: border-box;
     }
 
     .why-we__bonuses-list .why-we__bonus-element {
-        width: auto;
-        height: auto;
+        width: 100%;
+        min-height: 248px;
 
         margin: 0;
         padding: 14px 16px;
@@ -1871,18 +2246,33 @@ img {
     }
 
     .why-we__bonus-element:nth-child(1) .why-we__bonus-description-wrapper {
-        background-size: 80px 88px;
-        background-position: 88px 40px;
+        background-position: 18px -30px;
+        background-size: 880px;
+    }
+
+    .why-we__bonus-element:nth-child(1):hover .why-we__bonus-description-wrapper {
+        background-position: 19px -372px;
+        background-size: 880px;
     }
 
     .why-we__bonus-element:nth-child(2) .why-we__bonus-description-wrapper {
-        background-size: 80px 71px;
-        background-position: 88px 48px;
+        background-position: -591px -16px;
+        background-size: 810px;
+    }
+
+    .why-we__bonus-element:nth-child(2):hover .why-we__bonus-description-wrapper {
+        background-position: -594px -332px;
+        background-size: 810px;
     }
 
     .why-we__bonus-element:nth-child(3) .why-we__bonus-description-wrapper {
-        background-size: 57px 88px;
-        background-position: 100px 40px;
+        background-position: -315px -29px;
+        background-size: 880px;
+    }
+
+    .why-we__bonus-element:nth-child(3):hover .why-we__bonus-description-wrapper {
+        background-position: -315px -373px;
+        background-size: 880px;
     }
 
     .why-we__bonus-description {
@@ -1897,16 +2287,13 @@ img {
         margin-top: 108px;
     }
 
-        /* Об уходе за Мейн-Куном */
+    /* об уходе за Мейн-Куном */
     .care {
-        padding: 30px 0 31px 0;
+        padding: 32px 0 33px 0;
     }
 
     .care__headline {
-        width: 100%;
-
         font-size: 28px;
-        text-align: center;
 
         padding: 0 30px;
         box-sizing: border-box;
@@ -1917,44 +2304,33 @@ img {
     }
 
     .care__content-wrapper {
-        width: 100%;
-        height: auto;
-
         margin: 0;
-        padding: 10px 0 0 0;
+        padding: 9px 0 0 0;
     }
 
     .care__element {
         width: 290px;
         min-height: 150px;
 
-        margin-bottom: 30px;
+        margin: 0;
     }
 
-    .care__element:nth-child(2) {
-        margin-bottom: 32px;
+    .care__content-wrapper .care__element {
+        margin: 0 0 30px 0;
     }
 
     .care__element-content-wrapper {
-        width: 100%;
         min-height: auto;
 
         padding: 21px 0 15px 25px;
         box-sizing: border-box;
     }
 
-    .care__element:nth-child(3) .care__element-content-wrapper {
-        padding-right: 20px;
-    }
-
     .care__element-headline {
         font-size: 18px;
 
         margin: 0;
-    }
-
-    .care__element:nth-child(2n) .care__element-headline {
-        margin: 0;
+        padding: 0;
     }
 
     .care__element-context {
@@ -1964,40 +2340,37 @@ img {
         padding: 12px 0 0 0;
     }
 
-    .care__element-btn {
-        min-width: 46px;
+    .care__element:nth-child(2) .care__element-context {
+        padding-right: 20px;
     }
 
-    /* Наша команда */
+    .care__element-btn {
+        min-width: 46px;
+
+        background-position: -19px 35px;
+    }
+
+    /* наша команда */
     .team {
-        padding: 32px 0 59px 0;
+        padding: 30px 0 58px 0;
     }
 
     .team__headline {
-        width: 100%;
-
-        text-align: center;
         font-size: 28px;
     }
 
     .team__interpretation {
-        width: 100%;
-
         font-size: 14px;
-        text-align: center;
         line-height: 20px;
 
         margin: 0;
         padding: 0 30px;
-        box-sizing: border-box;
     }
     
     .team__slider {
         margin: 0;
 
         position: static;
-        top: 0;
-        left: 0;
     }
 
     .team__btn-previous,
@@ -2005,24 +2378,42 @@ img {
         min-width: 40px;
         height: 126px;
 
+        background-size: 600px;
+
         position: relative;
         top: 33px;
         left: 0;
-        right: 0;        
+        right: 0;
+
+        z-index: 1;
     }
 
     .team__btn-previous {
-        background-size: 20px 20px;
-        background-position: 9px 52px;
+        background-position: -310px -124px;
 
         left: 80px;
     }
 
+    .team__btn-previous:hover {
+        transform: scale(1.3);
+    }
+
+    .team__btn-previous:active {
+        transform: scale(0.85);
+    }
+
     .team__btn-following {
-        background-size: 20px 20px;
-        background-position: 9px 53px;
+        background-position: -314px 17px;
 
         left: -80px;
+    }
+
+    .team__btn-following:hover {
+        transform: scale(1.3);
+    }
+
+    .team__btn-following:active {
+        transform: scale(0.85);
     }
 
     .team__person {
@@ -2030,15 +2421,10 @@ img {
 
         flex-direction: column;
         align-items: center;
-
-        position: relative;
-        top: 0;
-        left: 0;
     }
 
-    .team__person-photo {
-        position: absolute;
-        top: 33px;
+    .team__person-photo-wrapper {
+        top: 34px;
         left: 82px;
     }
 
@@ -2046,13 +2432,13 @@ img {
         width: 290px;
 
         margin: 96px 0 0 0;
-        padding: 84px 0 0 0;
+        padding: 0;
     }
 
     .team__inter-wrapper {
         text-align: center;
 
-        padding: 0 0 10px 0;
+        padding: 85px 0 10px 0;
         margin: 0;
     }
 
@@ -2060,11 +2446,14 @@ img {
         font-size: 18px;
 
         margin: 0;
+        padding: 0;
     }
 
     .team__person-rank,
     .team__person-opinion {
         font-size: 14px;
+
+        padding: 0;
     }
 
     .team__person-rank {
@@ -2074,7 +2463,7 @@ img {
     .team__person-opinion {
         line-height: 20px;
 
-        margin: 16px 0 0 0;
+        margin: 17px 0 0 0;
     }
 
     .team__inter-wrapper .social {
@@ -2087,24 +2476,20 @@ img {
         margin: 0 1px;
     }
 
-    /* Вопрос-ответ */
+    /* вопрос-ответ */
     .faq {
-        padding: 30px 0 30px 0;
+        padding: 32px 0 8px 0;
     }
 
     .faq__headline {
-        width: 100%;
-
-        text-align: center;
         font-size: 28px;
     }
     
     .faq__interpretation {
         font-size: 14px;
-        text-align: center;
         line-height: 20px;
 
-        margin: 2px 0 0 0;
+        margin: 0;
         padding: 0 50px;
         box-sizing: border-box;
     }
@@ -2115,7 +2500,7 @@ img {
         font-size: 14px;
 
         margin: 0;
-        padding: 33px 15px 0 15px;
+        padding: 34px 15px 0 15px;
         box-sizing: border-box;
     }
     
@@ -2139,20 +2524,33 @@ img {
         padding: 10px 10px 8px 14px;
     }
     
-    .faq__list .faq__switcher {
-        width: 55px;
+    .faq__switcher {
+        width: 49px;
         height: auto;
-
-        padding: 0;
 
         display: block;
     }
+
+    .faq__switcher--opened {
+        background-position: -48px -44px;
+    }
     
+    .faq__switcher--closed {
+        background-position: 12px 12px;
+    }
+
+    .faq__switcher--closed:hover {
+        background-position: 12px -50px;
+    }
+
+    .faq__switcher--closed:active {
+        background-position: 12px -50px;
+    }
     
     .faq__answer {
         line-height: 19px;
 
-        padding: 13px 15px 10px 14px;
+        padding: 12px 15px 10px 14px;
     }
 
     .faq__answer p {
@@ -2163,7 +2561,7 @@ img {
         margin-top: 15px;
     }
 
-    /* Отзывы */
+    /* отзывы */
     .feedback {
         padding: 0;
     }
@@ -2176,8 +2574,6 @@ img {
         padding: 112px 0 60px 0;
 
         position: static;
-        top: 0;
-        left: 0;
     }
     
     .feedback__btn-previous,
@@ -2185,7 +2581,8 @@ img {
         min-width: 30px;
         height: 166px;
 
-        background-image: url("../pictures/feedback_short-arrow_(mobile).svg");
+        background-image: url("../pictures/arrows.svg");
+        background-size: 600px;
 
         position: relative;
         top: -83px;
@@ -2193,16 +2590,45 @@ img {
     }
 
     .feedback__btn-previous {
-        background-position: 8px 73px;
+        background-position: -320px -104px;
+
+        left: 22px;
+    }
+
+    .feedback__btn-previous:hover {
+        background-position: -318px -104px;
+
+        transform: scale(1.3);
+    }
+
+    .feedback__btn-previous:active {
+        background-position: -322px -104px;
+
+        transform: scale(0.85);
 
         left: 22px;
     }
 
     .feedback__btn-following {
-        background-position: 8px 73px;
+        background-position: -313px 36px;
 
         right: 22px;
         left: auto;
+    }
+
+    .feedback__btn-following:hover {
+        background-position: -314px 36px;
+
+        transform: scale(1.3);
+    }
+
+    .feedback__btn-following:active {
+        background-position: -310px 36px;
+
+        transform: scale(0.85);
+
+        left: auto;
+        right: 22px;
     }
     
     .feedback__commentator {
@@ -2212,16 +2638,12 @@ img {
         padding: 0;
 
         position: static;
-        top: 0;
-        left: 0;
-
-        justify-content: center;
     }
         
     .feedback__commentator-info {
         width: 290px;
 
-        padding: 98px 0 40px 0;
+        padding: 98px 0 35px 0;
 
         position: relative;
         top: 0;
@@ -2245,27 +2667,25 @@ img {
     }
     
     .feedback__additional-info {
-        margin: 22px 0 0 0;
+        margin: 17px 0 0 0;
         padding: 0;
-
-        justify-content: center;
     }
     
     .feedback__date-feedback {
         margin: 0;
-        padding: 0 18px 0 0;
+        padding: 0 15px 0 10px;
     }
 
     .feedback .social {
-        padding: 0 0 0 18px;
+        padding: 0 5px 0 18px;
     }
 
-    .feedback__additional-info .social__element--tw {
-        background-size: 20px 12px;
+    .feedback__additional-info .social__element-wrapper:not(:last-child) {
+        margin-right: 3px;
     }
 
-    .feedback__additional-info .social__element--vk {
-        background-size: 18px 10px;
+    .feedback__additional-info .social__element:active {
+        transform: scale(0.8);
     }
 
     /* подвал сайта */
@@ -2301,8 +2721,43 @@ img {
         justify-content: space-around;
 
         position: relative;
-        top: 0;
+        top: -5px;
         left: 0;
+    }
+
+    .footer .social__element {
+        width: 27px;
+        height: 27px;
+    }
+
+    .footer .social__element--vk {
+        background-size: 120px;
+        background-position: -95px -1px;
+    }
+
+    .footer .social__element--vk:hover {
+        background-size: 120px;
+        background-position: -95px -49px;
+    }
+
+    .footer .social__element--tw {
+        background-size: 120px;
+        background-position: -3px -2px;
+    }
+    
+    .footer .social__element--tw:hover {
+        background-size: 120px;
+        background-position: -3px -50px;
+    }
+
+    .footer .social__element--fb {
+        background-size: 80px;
+        background-position: -26px 6px;
+    }
+    
+    .footer .social__element--fb:hover {
+        background-size: 80px;
+        background-position: -26px -26px;
     }
     
     .footer__logo {
@@ -2310,7 +2765,7 @@ img {
 
         text-align: center;
 
-        padding: 21px 0;
+        padding: 11px 0 21px 0;
 
         display: block;
     }
